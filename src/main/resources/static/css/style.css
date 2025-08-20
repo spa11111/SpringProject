@@ -1,0 +1,393 @@
+/*Importing Google Font*/
+    @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root{
+    --primary-color:#D25128;
+    --bg-color:#FAFAFA;
+    --hero-color: #fff8f3;
+    --text-color:#333;
+    --footer-color:#fff8f3;
+    --border: .1rem solid rgba(0,0,0,.1);
+    --outline-hover: .1rem solid black;
+    --border-hover: .1rem solid rgba(0,0,0,.1);
+    --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    --swiper-theme-color: #333;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+
+body{
+    background: var(--bg-color);
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    text-align: center
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+
+}
+
+.section-title::after{
+  content: "";
+  width: 80px;
+  height: 5px;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 5px;
+  background: var(--primary-color);
+}
+
+.section-content{
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: fit-content;
+}
+
+/*Hero*/
+      .hero-section{
+        min-height: 100vh;
+        background-color: var(--hero-color);
+      }
+
+      .hero-section .section-content{
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+        color: var(--text-color);
+        justify-content:  center;
+        text-align: center;
+      }
+
+      .hero-section .hero-details .title{
+        font-size: 3rem;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+       .hero-section .hero-details .subtitle{
+        margin-top: 8px;
+        font-size: 2rem;
+        font-weight: 600;
+         max-width: 100%;
+      }
+
+      .hero-section .hero-details .description{
+        max-width: 100%;        
+        margin: 24px 0 40px;
+        font-size: 1rem;
+      }
+
+      .hero-section .hero-details .buttons{
+        display: flex;
+        gap: 23px;
+        justify-content: center;
+      }
+
+      .hero-section .hero-details .button{
+        padding: 10px 26px;
+        border: 2px solid transparent;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        background: var(--primary-color);
+        font-weight: 600;
+        transition: 0.3s ease;
+      }
+
+      .hero-section .hero-details .button:hover{
+        text-decoration: underline;
+      }
+
+    /*TO DO*/
+      .features{
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .feature-cards{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        justify-content: center;
+      }
+
+      .card {
+        padding: 30px 60px;
+        border-radius: 10px;
+        flex: 1 1 250px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1)
+      }
+
+      .card h3{
+        margin-top: 15px;
+        font-size: 1.5rem;
+        color: var(--text-color);
+      }
+
+      .card p{
+        margin-top: 10px;
+        font-size: 1rem;
+        color: var(--text-color);
+      }
+      .card i{
+        font-size: 5rem;
+      }
+
+      /*Testimonial*/
+      .testimonials-section{
+        margin-top: 60px;
+        padding: 50px 0 100px;
+        background-color: var(--hero-color);
+      }
+
+
+      .testimonials-section .slider-wrapper{
+        overflow: hidden;
+        margin: 0 60px 50px;
+      }
+
+      .testimonials-section .testimonial{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 35px;
+        text-align: center;
+      }
+
+      .testimonials-section .testimonial .user-image{
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 360px;
+        margin-bottom: 50px;
+      }
+
+      .testimonials-section .testimonial .user-image:hover{
+        border: 1px solid #fff;
+      }
+
+      .testimonials-section .testimonial .name{
+        margin-bottom: 16px;
+      }
+
+      .testimonials-section .testimonial .feedback{
+        line-height: 25px;
+      }
+
+      .testimonials-section .swiper-pagination-bullet{
+        margin-top: 10px;
+        width: 15px;
+        height: 15px;
+        opacity: 1;
+        background: var(--text-color);
+      }
+
+      .testimonials-section .swiper-button-prev{
+        margin-top: -50px;
+        color: var(--text-color);
+        transition: 0.3s ease;
+      }
+
+      .testimonials-section .swiper-button-next{
+        margin-top: -50px;
+        color: var(--text-color);
+        transition: 0.3s ease;
+      }
+
+      /*Books*/
+      .products{
+        margin-top: 60px;
+      }
+
+      .products .product-slider{
+        padding: 1rem;
+      }
+
+      .products .product-slider:first-child{
+        padding-bottom: 2rem;
+      }
+
+      .products .product-slider .box{
+        background: none;
+        border-radius: 10px;
+        text-align: center;
+        padding: 2rem .5rem;
+        outline: var(--border);
+        box-shadow: var(--box-shadow);
+        transition: .2s linear;
+      }
+
+      .products .product-slider .box:hover{
+        outline-offset: 0rem;
+        outline: var(--outline-hover);
+      }
+
+      .products .product-slider .box img{
+        height: 20rem;
+      }
+
+      .products .product-slider .box p {
+          margin-top: 10px;
+          margin-bottom: 15px;
+          font-size: 18px;
+          font-weight: 600;
+      }
+
+      .products .product-slider .box a {
+          color: black;
+          padding: 0.4rem 0.8rem;
+          border-radius: 5px; 
+          margin-top: 30px;
+          font-size: 16px;
+          border: 1px solid #333;
+          text-decoration: none;
+      }
+
+      .products .product-slider .box a:hover{
+          background: black;
+          color: white;
+          padding: 0.4rem 0.8rem;
+          border-radius: 5px; 
+          margin-top: 10px;
+          font-size: 16px;
+          text-decoration: none;
+      }
+
+      /*Premium*/
+      .premium{
+        margin-top: 60px;
+      }
+
+      .premium .product-slider{
+        padding: 1rem;
+      }
+
+      .premium .product-slider:first-child{
+        padding-bottom: 2rem;
+      }
+
+      .premium .product-slider .box{
+        background: none;
+        position: relative;
+        border-radius: 10px;
+        text-align: center;
+        padding: 2rem .5rem;
+        outline: var(--border);
+        box-shadow: var(--box-shadow);
+        transition: .2s linear;
+        overflow: hidden;
+      }
+
+      .premium .product-slider .box:hover{
+        outline-offset: 0rem;
+        outline: var(--outline-hover);
+      }
+
+      .premium .product-slider .box:hover .image{
+        transform: translateY(1rem);
+      }
+
+      .premium .product-slider .box .image img{
+        height: 20rem;
+      }
+
+      .premium .product-slider .box .icons{
+        border-bottom: var(--outline-hover);
+        position:absolute;
+        top: 0;left: 0; right: 0;
+        background: none;
+        z-index: 1;
+        transform: translateY(-100%);
+      }
+
+      .premium .product-slider .box:hover .icons{
+        transform: translateY(0%);
+      }
+
+      .premium .product-slider .icons a{
+        color: black;
+        font-size: 1.8rem;
+        padding:1.3rem 1.5rem;
+        text-decoration: none;
+      } 
+
+      .premium .product-slider .box .icons a:hover{
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      /*Home page*/
+.picture-section {
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+     background: url("../images/slide2.jpg") center/cover no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.about {
+    color: white;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+
+
+
+
+/*Responsive*/
+    @media screen and (max-width: 900px){
+
+        .feature-cards {
+          flex-direction: column;
+        }
+        
+      }
+
+       @media (max-width: 640px) {
+        .testimonials-section .slider-wrapper{
+          margin: 0 0 30px;
+        }
+          .testimonials-section .swiper-button-prev{
+            display: none;
+          }
+
+          .testimonials-section .swiper-button-next{
+            display: none;
+          }
+        }  

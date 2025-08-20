@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Platform - Falling for the Rockstar</title>
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <!--css-->
+    <link rel="stylesheet" href="css/hf.css">
+    <link rel="stylesheet" href="css/describe.css">
+    <!--icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!--Header starts-->
+      <header>
+        <nav class="navbar">
+            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            
+            <ul class="menu-links">
+                <span id="close-button" class="material-symbols-outlined">close</span>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#browse">Browse</a></li>
+                <li><a href="#community ">Community</a></li>
+                <li><a href="#writer ">Writer</a></li>
+
+                <li>
+                <form action="#" class="search-form">
+                <input type="text" placeholder="Search" required>
+                <button class="material-symbols-outlined"><i class='bx  bx-search'  ></i> </button>
+                </form>
+                </li>
+
+                <li class="premium-btn"><a href="#">Try Premium</a></li>
+
+                <li>
+                <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn"><img src="images/user.png"></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="profile" style="text-decoration: none;">Profile</a>
+                    <hr>
+                    <p>Inbox</p>
+                    <p>Notification</p>
+                    <p>Settings</p>
+                    <p>Help</p>
+                    <p>Log out</p>
+                </div>
+                </div>
+                </li>
+            </ul>
+            <span id="hamburgor-btn" class="material-symbols-outlined">menu</span> 
+        </nav>
+    </header>
+<!--Header ends-->
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Content -->
+        <div class="left-content">
+            <!-- Book Header -->
+            <div class="book-header">
+                <div class="book-cover">
+                    <img src="images/45.jpg" alt="Falling for the Rockstar">
+                </div>
+                <div class="book-info">
+                    <h1>WAINDALE</h1>
+                    <button class="premium-coin-btn" onclick="openModal()">
+                    <i class='bx  bxs-coin'  style='color:white'></i>BUY
+                </button>
+                    <div class="book-stats">
+                        <div class="stat">
+                            <div class="stat-number">33K</div>
+                            <div class="stat-label">Reads</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">523</div>
+                            <div class="stat-label">Votes</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">36</div>
+                            <div class="stat-label">Parts</div>
+                        </div>
+                    </div>
+                    <a href="#" class="start-reading-btn">Start reading</a>
+                </div>
+            </div>
+
+                <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">Continue reading this story?</h2>
+                <p class="modal-description">
+                    Buy this story part or the entire story. Either way, your Coins help writers earn money for the stories you love.
+                </p>
+            </div>
+
+            <div class="purchase-options">
+                <button class="purchase-button" >
+                    <div class="coin-icon"><i class='bx  bxs-coin'  style='color:white'></i></div>
+                    <span class="purchase-text">
+                        <strong>269</strong> &nbsp;&nbsp; For whole story
+                    </span>
+                </button>
+                <a href="chapter" class="purchase-button">
+                    <div class="coin-icon"><i class='bx  bxs-coin'  style='color:white'></i></div>
+                    <span class="purchase-text">
+                        <strong>3</strong> &nbsp;&nbsp; For a part
+                    </span>
+                </a>
+            </div>
+
+            <div class="remaining-parts">
+                This story has <strong>36 parts</strong>
+            </div>
+
+            <div class="learn-more">
+                See how Coins support your favorite writers. <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+            <!-- Author Info -->
+            <div class="author-info">
+                <div class="author-header">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-name">TheSydeyMarie</div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Complete</span>
+                    <span class="tag mature">Mature</span>
+                </div>
+                <div class="book-describe">
+                <p>Wrenley returns to Waindale hoping for a peaceful escape, but the dark secrets lurking in the woods soon pull her into a dark mystery-one she'll be forced to confront.
+                    <br><br>***<br><br>Wrenley moves to Waindale-the place where her mother grew up and where her grandmother still lives. Between the pine trees and above the wet ground, she soon realizes that Waindale is anything but the perfect place she remembers it as. Dark things stalk the woods. Dark things are pulling her in.
+                    <br><br>***<br><br>"I turn on the lamp that's sitting on top of my dresser. The pink lampshade makes my room glow with a feminine warmth, and it shines through the glass of my window; a signal so he can find his way home. It's dark out there, so bone-chillingly dark that I nearly fear for him before realizing that he is the greatest danger in those woods."
+                    <br><br>***<br><br>Human X Werewolf<br>PG-13
+                    <br><br>
+                <strong>© All Rights Reserved</strong></p>
+                </div>
+
+                <div class="hash">
+                    <span>#fantasy</span>
+                    <span>#murdermystery</span>
+                    <span>#romance</span>
+                    <span>#trauma</span>
+                    <span>#supernatural</span>
+                    <span>#power</span>
+                    <span>#magic</span>
+                    <!-- add more as needed -->
+                </div>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="table-of-contents">
+                <h3 class="toc-header">Table of contents</h3>
+                <ul class="chapter-list">
+                    <li class="chapter-item">
+                        <span class="chapter-title">ABOUT AUTHOR</span>
+                        <span class="chapter-date">Fri, Apr 21, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">CHARACTER</span>
+                        <span class="chapter-date">Sat, Apr 22, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">🔥 DISCLAIMER 🔥</span>
+                        <span class="chapter-date">Sun, Jun 11, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">Chapter 1</span>
+                        <span class="chapter-date">Thu, Jun 15, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">Chapter 2</span>
+                        <span class="chapter-date">Thu, Jun 15, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">Chapter 3</span>
+                        <span class="chapter-date">Thu, Jun 22, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">Chapter 4</span>
+                        <span class="chapter-date">Thu, Jun 22, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">Chapter 5- part one</span>
+                        <span class="chapter-date">Thu, Jun 29, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">Chapter 5- part two</span>
+                        <span class="chapter-date">Thu, Jun 29, 2023</span>
+                    </li>
+                    <li class="chapter-item">
+                        <span class="chapter-title">Chapter 6</span>
+                        <span class="chapter-date">Thu, Jul 6, 2023</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+
+            <!-- Recommendations -->
+            <div class="recommendations">
+                <h3 class="rec-header">You may also like</h3>
+                
+                <div class="rec-item">
+                    <div class="rec-cover"><img src="images/11.png"></div>
+                    <div class="rec-info">
+                        <h4>Lord Of Rings</h4>
+                        <div class="rec-author">
+                            <span><i class='bx bx-show' style='color:#000000'></i>    2.2M</span>
+                            <span><i class='bx  bxs-star'  style='color:#000000'></i>   700K</span>
+                        </div>
+                        <div class="rec-tags">
+                            <span class="rec-tag">Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rec-item">
+                    <div class="rec-cover"><img src="images/33.jpg"></div>
+                    <div class="rec-info">
+                        <h4>Savage Fate</h4>
+                        <div class="rec-author">
+                            <span><i class='bx bx-show' style='color:#000000'></i>    1.2M</span>
+                            <span><i class='bx  bxs-star'  style='color:#000000'></i>   500K</span>
+                        </div>
+                        <div class="rec-tags">
+                            <span class="rec-tag">Complete</span>
+                            <span class="rec-tag mature">Mature</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rec-item">
+                    <div class="rec-cover"><img src="images/9.png"></div>
+                    <div class="rec-info">
+                        <h4>A Goddess Unravelled</h4>
+                        <div class="rec-author">
+                            <span><i class='bx bx-show' style='color:#000000'></i>  500K</span>
+                            <span><i class='bx  bxs-star'  style='color:#000000'></i>   100K</span>
+                        </div>
+                        <div class="rec-tags">
+                            <span class="rec-tag">Ongoing</span>
+                            <span class="rec-tag mature">Mature</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rec-item">
+                    <div class="rec-cover"><img src="images/35.jpg"></div>
+                    <div class="rec-info">
+                        <h4>Breaking the ice</h4>
+                        <div class="rec-author">
+                            <span><i class='bx bx-show' style='color:#000000'></i>    2M</span>
+                            <span><i class='bx  bxs-star'  style='color:#000000'></i>   1K</span>
+                        </div>
+                        <div class="rec-tags">
+                            <span class="rec-tag">Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Footer starts-->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-links">
+          <h3>Quick links</h3>
+          <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Writer</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Be a Member</a></li>
+          </ul>
+      </div>
+      <div class="footer-links">
+          <h3>&nbsp;</h3> 
+          <ul>
+              <li><a href="#">Language</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Get the app</a></li>
+              <li><a href="#">Promotion</a></li>
+          </ul>
+      </div>
+      <div class="footer-info">
+          <h3>Have any question?</h3>
+          <p>Feel free to reach out  on our platforms.</p>
+          <p>Happy Reading!.</p>
+          <div class="social">
+              <a href="#"><i class='bx bxl-tiktok'></i></a>
+              <a href="#"><i class='bx bxl-instagram' ></i></a>
+              <a href="#"><i class='bx bxl-gmail' ></i></a>
+              <a href="#"><i class='bx bxl-pinterest' ></i></a>
+          </div>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p><a href="#">Privacy policy</a></p>
+      <p><a href="#">Terms and Services</a></p>
+      <p><a href="#">Help Centre</a></p>
+      <p><a href="#">Accessibility</a></p>
+  </div>
+
+  </footer>
+
+    <!-- custom js-->
+    <script src="js/script.js"></script>
+
+    <script>
+        function openModal() {
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (!event || event.target === document.getElementById('modalOverlay') || event.target.classList.contains('close-button')) {
+                document.getElementById('modalOverlay').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
+

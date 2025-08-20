@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Platform - Falling for the Rockstar</title>
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <!--css-->
+    <link rel="stylesheet" href="css/readChap.css">
+    <!--icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!--Header for voting and dropdown-->
+    <div class="header">
+            <div class="left-section">
+                <div class="book-cover">
+                    <img src="images/1.png" alt="book">
+                </div>
+                <div class="book-info">
+                    <h1>Last Seen</h1>
+                    <div class="chapter-dropdown">
+                        <select class="chapter-select" onchange="changeChapter(this.value)">
+                            <option value="1">ABOUT AUTHOR</option>
+                            <option value="2">CHARACTER</option>
+                            <option value="3">🔥 DISCLAIMER 🔥</option>
+                            <option value="4">Chapter 1</option>
+                            <option value="5">Chapter 2</option>
+                            <option value="5">Chapter 3</option>
+                            <option value="5">Chapter 4</option>
+                            <option value="5">Chapter 5- part one</option>
+                            <option value="5">Chapter 5- part two</option>
+                            <option value="5">Chapter 6</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-section">
+                <a href="#" class="vote-button">
+                    <i class='bx  bx-star'  style='color:#000000'></i>  Vote
+                </a>
+            </div>
+        </div>
+        <!--Header end-->
+
+        <!--WHich chapter? and author with stats-->
+        <div class="container">
+        <div class="chapter-header">
+            <div class="author-info">
+                <div class="author-avatar">JE</div>
+                <div class="author-details">
+                    <h3>J.T. Elison</h3>
+                </div>
+                <button class="follow-btn" onclick="toggleFollow()">Follow</button>
+            </div>
+            <div class="topic">
+            <h2 class="chapter-title">Chapter 1</h2>
+            </div>
+            <div class="stats">
+                <span ><i class='bx bx-show' style='color:#000000'></i>  1.2k</span>
+                <span><i class='bx bx-message-dots' style='color:#000000'></i> 89</span>
+                <span><i class='bx  bxs-star'  style='color:#000000'></i> 45</span>
+            </div>
+        </div>
+
+
+        <!--Chapter-->
+        <div class="content">
+            <div class="author-info">
+
+            <div class="story-text">
+                <p>Friday night 🍷</p>
+                
+                <p>Got PMS</p>
+                
+                <p>I was sitting in my car outside the school compound as the clock ticked by. My reservation with your grandma was disturbing. <span class="emphasis">"You can you believe my family likes to graduate a boy grown and have sex as a soft sweet girl?"</span> I was so confused and hurt by her words. I couldn't understand why she would say such things about me. The pain was not even truly my best friend yet," she comes searching for some around the world hoping to find a place where she is blessed and loved. She was looking for someone who could understand her and love her for who she was.</p>
+
+                <p><span class="dialogue">"I know I can't believe that's all done now like,"</span> I try and listen to my mom and dad's story. <span class="emphasis">"I'm glad dad gave me something to live something."</span> That was so we head to visit the dad and mom expecting to live there. <span class="emphasis">Just to a morning we walked by and saw all the children playing in the area, and we decided to join all of the parents.</span> I grew up so much that way so we could think around the crowd all my years that I can't wait for some and some like we were looking for and as I was my conscious choice factory getting a habit working on them. <span class="emphasis">There's a wedding but which trouble me and my girlfriend to my very handsome girl.</span> I look at her with almost all the things I ever saw and I was so happy to see her handsome enemy," I quickly they say.</p>
+
+                <p>As we stood in line I'm standing nervously for my name to be called as I told our standing parents if they had all the reports correctly before they could see me. I was so nervous and scared about what was going to happen. Being called walk across the stage with a smile as I tried to accept my diploma and shake hands with getting a picture book the important people in my life. I was so proud of myself for making it this far and I knew that my family was proud of me too. As I walked across the stage and threw my hat in the air I couldn't believe we were here to see just happy from the <span class="emphasis">"But I'm so glad you came"</span> I said to my parents as they hugged me tight. I was so grateful to have them there to share this special moment with me. <span class="emphasis">You there's something I want you to know, so let's live with words, happy life is something."</span> I say putting my arms on his back as he held. <span class="emphasis">"You there's something I want you to know, so let's live with words, happy life is something."</span></p>
+
+                <p>I was so happy to finally be done with school and ready to start the next chapter of my life. I knew that there would be challenges ahead, but I was ready to face them head on. <span class="emphasis">"The worry goes ahead"</span> I say laughing as I felt peace having freedom from school and starting away from home. I was excited about all the possibilities that lay ahead of me and I couldn't wait to see what the future would bring. <span class="emphasis">That's not concluded to enough"</span> I said with excitement as we walked out into the parking lot. I felt like the whole world was open to me and I was ready to explore it. I knew that my family would always be there to support me no matter what happened.</p>
+            </div>
+        </div>
+
+        <!--Continue button-->
+        <div class="continue-section">
+
+            <button class="continue-btn" onclick="continueReading()">
+                Continue to next part
+            </button>
+        </div>
+
+        <!--Post a comment-->
+         <div class="comment-form">
+                    <div class="comment-input-container">
+                        <div class="user-avatar">U</div>
+                        <div class="input-section">
+                            <textarea 
+                                id="commentInput" 
+                                placeholder="Write a comment..." 
+                                rows="3"
+                                maxlength="500"
+                            ></textarea>
+                            <div class="comment-actions">
+                                <span class="char-count" id="charCount">0/500</span>
+                                <button class="submit-comment-btn" onclick="submitComment()" id="submitBtn" disabled>
+                                    Post
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Comments-->
+                <div id="commentsContainer">
+                    <div class="comment">
+                        <div class="comment-avatar">A</div>
+                        <div class="comment-content">
+                            <h4>@bookworm_anna</h4>
+                            <p>OMG this is getting so intense! I can't wait to see what happens next between them. The tension is killing me!</p>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-avatar">M</div>
+                        <div class="comment-content">
+                            <h4>@midnight_reader</h4>
+                            <p>Sarah Mitchell always knows how to write these complicated family dynamics. This story has me hooked!</p>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-avatar">L</div>
+                        <div class="comment-content">
+                            <h4>@literature_lover</h4>
+                            <p>The way you're building up the relationship between these characters is perfect. Can't wait for the next chapter!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Recommendations-->
+        <div class="rec-container">
+        <div class="recommendations">
+            <h3 class="rec-title">You'll also like</h3>
+            <div class="rec-books">
+                <div class="rec-book">
+                    <div class="rec-book-cover">
+                        <img src="images/31.jpg">
+                    </div>
+                    <div class="rec-describe">
+                        <h4>In Another Era</h4>
+                        <p style="color: black; font-size: 0.9em;">Kara Flynn</p>
+                        <p style="color: #7f8c8d; font-size: 0.9em;">The greatest warrior the kingdom had ever seen had just one weakness, something that only he knew of- his love for the stable boy...</p>
+                    </div>
+                </div>
+                <div class="rec-book">
+                    <div class="rec-book-cover">
+                        <img src="images/42.jpg">
+                    </div>
+                    <div class="rec-describe">
+                        <h4>Lilah</h4>
+                        <p style="color: black; font-size: 0.9em;">Ashlyn Pope</p>
+                        <p style="color: #7f8c8d; font-size: 0.9em;">She's a wild, free spirit who sees the good in everyone, and he's the hardened, bad-tempered loner who wants nothing to do...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!--JS-->
+    <script>
+        let isFollowing = false;
+        let commentCount = 89;
+
+        function toggleFollow() {
+            const followBtn = document.querySelector('.follow-btn');
+            
+            if (!isFollowing) {
+                followBtn.textContent = 'Following';
+                followBtn.classList.add('following');
+                isFollowing = true;
+            } else {
+                followBtn.textContent = 'Follow';
+                followBtn.classList.remove('following');
+                isFollowing = false;
+            }
+        }
+
+
+        function continueReading() {
+            alert('Loading next part...');
+        }
+
+        document.getElementById('commentInput').addEventListener('input', function() {
+            const input = this;
+            const charCount = document.getElementById('charCount');
+            const submitBtn = document.getElementById('submitBtn');
+            const currentLength = input.value.length;
+            
+            charCount.textContent = `${currentLength}/500`;
+            
+            if (currentLength > 450) {
+                charCount.classList.add('warning');
+            } else {
+                charCount.classList.remove('warning');
+            }
+            
+            submitBtn.disabled = currentLength === 0 || currentLength > 500;
+        });
+
+        function submitComment() {
+            const input = document.getElementById('commentInput');
+            const commentText = input.value.trim();
+            
+            if (commentText === '') return;
+            
+            // Create new comment element
+            const newComment = document.createElement('div');
+            newComment.className = 'comment new-comment';
+            newComment.innerHTML = `
+                <div class="comment-avatar">U</div>
+                <div class="comment-content">
+                    <h4>@you <span style="color: #7f8c8d; font-weight: normal; font-size: 0.8em;">just now</span></h4>
+                    <p>${commentText}</p>
+                </div>
+            `;
+            
+            // Add to comments container at the top
+            const commentsContainer = document.getElementById('commentsContainer');
+            commentsContainer.insertBefore(newComment, commentsContainer.firstChild);
+            
+            // Update comment count
+            commentCount++;
+            document.querySelector('.comments-title').textContent = `Comments (${commentCount})`;
+            
+            // Clear input and reset form
+            input.value = '';
+            document.getElementById('charCount').textContent = '0/500';
+            document.getElementById('submitBtn').disabled = true;
+            
+            // Show success feedback
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Posted!';
+            submitBtn.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '#ff6b35';
+            }, 2000);
+        }
+
+        // Allow Enter + Shift to submit comment
+        document.getElementById('commentInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.shiftKey) {
+                e.preventDefault();
+                if (!document.getElementById('submitBtn').disabled) {
+                    submitComment();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

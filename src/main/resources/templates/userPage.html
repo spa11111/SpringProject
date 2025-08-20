@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Platform - Falling for the Rockstar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--css-->
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/hf.css">
+    <!--icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+ <!--Header starts-->
+      <header>
+        <nav class="navbar">
+            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            
+            <ul class="menu-links">
+                <span id="close-button" class="material-symbols-outlined">close</span>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#browse">Browse</a></li>
+                <li><a href="#community ">Community</a></li>
+                <li><a href="#writer ">Writer</a></li>
+
+                <li>
+                <form action="#" class="search-form">
+                <input type="text" placeholder="Search" required>
+                <button class="material-symbols-outlined"><i class='bx  bx-search'  ></i> </button>
+                </form>
+                </li>
+
+                <li class="premium-btn"><a href="#">Try Premium</a></li>
+
+                <li>
+                <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn"><img src="images/user.png"></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#" style="text-decoration: none;">Profile</a>
+                    <hr>
+                    <p>Inbox</p>
+                    <p>Notification</p>
+                    <p>Settings</p>
+                    <p>Help</p>
+                    <p>Log out</p>
+                </div>
+                </div>
+                </li>
+            </ul>
+            <span id="hamburgor-btn" class="material-symbols-outlined">menu</span> 
+        </nav>
+    </header>
+<!--Header ends-->
+
+<!-- Profile Header -->
+    <div class="profile-header py-5">
+        <div class="profile-content">
+            <div class="container" style="text-align: left;">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="d-flex align-items-center flex-wrap gap-4">
+                            <img src="images/user.png" alt="user-avatar" class="profile-avatar">
+                            <div>
+                        <div class="user-user">
+                                <h1 class="h2 mb-2">Spiritual Awake<a href="#" class="user-coins">50<i class="bx  bxs-coin"></i></a></h1>
+                            </div>
+                                <p class="mb-2 opacity-75">@sp_00</p>
+                                <p class="mb-3 opacity-90">Fantasy author passionate about magical worlds and epic adventures. Creating stories that transport readers to enchanted realms.</p>
+                                <div class="d-flex align-items-center gap-3 flex-wrap">
+                                    <span><i class="fas fa-map-marker-alt me-1"></i> Lalitpur, Nepal</span>
+                                    <span><i class="fas fa-calendar-alt me-1"></i> Joined August 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <button style="border: 1px solid #000; padding: 5px 10px; border-radius: 10px;">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Edit profile</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="container mt-4">
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="stats-card p-3 text-center">
+                    <div class="stats-number">2</div>
+                    <div class="stats-label">Works</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stats-card p-3 text-center">
+                    <div class="stats-number">50</div>
+                    <div class="stats-label">Followers</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stats-card p-3 text-center">
+                    <div class="stats-number">100</div>
+                    <div class="stats-label">Following</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stats-card p-3 text-center">
+                    <div class="stats-number">2</div>
+                    <div class="stats-label">Reading list</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-4 mb-5">
+        <div class="col-12">
+                <div class="tabs">
+                <button class="tab-btn active" data-tab="works"><i class="fas fa-book me-2"></i> Works</button>
+                <button class="tab-btn" data-tab="reading"><i class="fas fa-list me-2"></i> Reading Lists</button>
+                </div>
+
+            <div class="tab-content">
+            <div class="tab-pane active" id="works">
+                <!-- Works Tab -->
+                     <div class="tab-pane active" id="works" >
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="h5 mb-0">2 Published Stories • 1 Drafts (only visible to you)</h3>
+                            <div class="dropdown">
+                                <a href="new">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    + New Story
+                                </button></a>
+                            </div>
+                        </div>
+                        
+                        <div class="story-list">
+                        <div class="story-item">
+                            <img src="images/8.png" alt="book" class="story-cover">
+                            <div class="story-info">
+                                <h3 class="story-title">Kenze</h3>
+                                <div class="story-stats">
+                                    <span><i class="fas fa-eye"></i> 1K</span>
+                                    <span><i class="fas fa-star"></i> 100</span>
+                                    <span><i class="fas fa-comment"></i> 230</span>
+                                </div>
+                                <p class="story-description">Zean Kanandra, the unruly bad boy, meets the cold and jealous student council president. One day, they get into a misunderstanding over a misplaced file.</p>
+                                <p class="draft-notice">Last published- 2 days ago</p>
+                            </div>
+                        </div>
+
+                        <div class="story-item">
+                            <img src="images/38.jpg" alt="book" class="story-cover">
+                            <div class="story-info">
+                                <h3 class="story-title">Six Feet Deep</h3>
+                                <div class="story-stats">
+                                    <span><i class="fas fa-eye"></i> 3</span>
+                                    <span><i class="fas fa-star"></i> 1</span>
+                                    <span><i class="fas fa-comment"></i> 2</span>
+                                </div>
+                                <p class="story-description">One night of recklessness. That's what I wanted.<br>To lose control with the stranger who saved my life.</p>
+                                <p class="draft-notice">Last published- a moment ago</p>
+                            </div>
+                        </div>
+
+                        <div class="story-item">
+                            <img src="images/35.jpg" alt="book" class="story-cover">
+                            <div class="story-info">
+                                <h3 class="story-title">Breaking the Ice</h3>
+                                <div class="story-stats">
+                                    <span><i class="fas fa-eye"></i> 0</span>
+                                    <span><i class="fas fa-star"></i> 0</span>
+                                    <span><i class="fas fa-comment"></i> 0</span>
+                                </div>
+                                <p class="story-description">A star hockey captain and a small-town girl are forced together, igniting a romance that could melt the iciest of hearts.</p>
+                                <p class="draft-notice">DRAFT (only visible to you)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="show-more-btn">Show more <i class="fas fa-chevron-down"></i></button>
+                        </div>
+            </div>
+
+
+            <div class="tab-pane" id="reading">
+                <div class="reading-lists-section">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="h5 mb-0">2 Reading List</h3>
+                        <div class="col-6 text-end">
+                            <button class="add-btn">Create List</button>
+                        </div>
+                    </div>
+
+                        <div class="book-grid">
+                            <div class="book-item">
+                                <img src="images/36.jpg" alt="book" class="book-cover">
+                                <div class="book-info">
+                                    <h4>Fantasy Favourites</h4>
+                                    <span>24 books</span>
+                                    <a href="#" class="show-more-btn">View list</a>
+                                </div>
+                            </div>
+
+                            <div class="book-item">
+                                <div class="private">
+                                    <p><i class="fa-solid fa-lock"></i>Private</p>
+                                </div>
+                                <img src="images/9.png" alt="book" class="book-cover">
+                                <div class="book-info">
+                                    <h4>Personal Inspiration</h4>
+                                    <span>2 books</span>
+                                    <a href="#" class="show-more-btn">View list</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>        
+    </div>
+
+<!-- Footer starts-->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-links">
+          <h3>Quick links</h3>
+          <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Writer</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Be a Member</a></li>
+          </ul>
+      </div>
+      <div class="footer-links">
+          <h3>&nbsp;</h3> 
+          <ul>
+              <li><a href="#">Language</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Get the app</a></li>
+              <li><a href="#">Promotion</a></li>
+          </ul>
+      </div>
+      <div class="footer-info">
+          <h3>Have any question?</h3>
+          <p>Feel free to reach out  on our platforms.</p>
+          <p>Happy Reading!.</p>
+          <div class="social">
+              <a href="#"><i class='bx bxl-tiktok'></i></a>
+              <a href="#"><i class='bx bxl-instagram' ></i></a>
+              <a href="#"><i class='bx bxl-gmail' ></i></a>
+              <a href="#"><i class='bx bxl-pinterest' ></i></a>
+          </div>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p><a href="#">Privacy policy</a></p>
+      <p><a href="#">Terms and Services</a></p>
+      <p><a href="#">Help Centre</a></p>
+      <p><a href="#">Accessibility</a></p>
+  </div>
+
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabPanes = document.querySelectorAll(".tab-pane");
+
+  tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const target = button.getAttribute("data-tab");
+
+      // remove active class from all buttons & panes
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+      tabPanes.forEach(pane => pane.classList.remove("active"));
+
+      // add active class to clicked button & corresponding pane
+      button.classList.add("active");
+      document.getElementById(target).classList.add("active");
+    });
+  });
+});
+
+  const header = document.querySelector("header");
+        const hambugerBtn = document.querySelector("#hamburgor-btn");
+        const closeMenuBtn = document.querySelector("#close-button");
+
+        hambugerBtn.addEventListener("click", () =>{
+            header.classList.toggle("show-mobile-menu");
+        })
+
+        closeMenuBtn.addEventListener("click", () =>{
+            hambugerBtn.click();
+        })
+
+</script>
+
+</body>

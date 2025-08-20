@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiara Story</title>
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!--css-->
+    <link rel="stylesheet" href="css/login.css">
+    <!--icons-->
+    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <form method="post" action="signup">
+            <div class="text-center">
+             <img src="images/logo.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Username" name="username" required>
+            </div>
+
+            <div class="input-box">
+                <input type="email" placeholder="Email" name="email" required>
+            </div>
+
+            <div class="input-box">
+                <select class="selected" id="gender" name="gender">
+                <option selected disabled>Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Private</option>
+                <option value="other">Other</option>
+            </select>
+            </div>
+
+            <div class="input-box">
+                <input type="date" id="dob" name="date" placeholder="Birthday" class="selected" required>
+            </div>
+
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="password" required>
+            </div>
+
+            <div class="input-box">
+                <input type="password" placeholder="Re-enter password" required>
+            </div>
+
+            
+            <input class="btn" type="submit" placeholder="Register">
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">I agree to all the Terms and Conditions.</label>
+            </div>
+
+            <div class="register-link">
+                <p>Already have an account?<a href="login">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>

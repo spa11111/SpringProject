@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Platform - Falling for the Rockstar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--css-->
+    <link rel="stylesheet" href="css/addBook.css">
+    <!--icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <button class="back-btn" onclick="goBack()">←</button>
+                <div class="header-title">
+                    <div class="header-subtitle">Add Story Info</div>
+                    <div class="header-main">Untitled Story</div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-dark">Cancel</button>
+                <button class="btn btn-primary">Next</button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="cover-upload" onclick="uploadCover()">
+                    <div class="cover-icon">C</div>
+                    <div class="cover-text">Add a cover</div>
+                </div>
+                <div class="info-icon" title="Upload a cover image for your story">i</div>
+            </div>
+
+            <div class="right-panel">
+                <h2 class="section-title">Story Details</h2>
+
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" placeholder="Untitled Story" id="storyTitle">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Subtitle</label>
+                    <input type="text" class="form-input" placeholder="Book Series" id="storyTitle">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Description
+                        <span class="info-tooltip" title="Provide a brief description of your story">i</span>
+                    </label>
+                    <textarea class="form-input textarea" placeholder="Enter story description..." id="storyDescription"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Main Characters
+                        <span class="info-tooltip" title="Add the main characters in your story">i</span>
+                    </label>
+                    <div class="character-input-group">
+                        <input type="text" class="form-input character-input" placeholder="Name" id="characterName">
+                        <button class="add-btn" onclick="addCharacter()">+</button>
+                    </div>
+                    <div class="character-list" id="characterList"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Tags
+                        <span class="info-tooltip" title="Add the tags in your story">i</span>
+                    </label>
+                    <div class="character-input-group">
+                        <input type="text" class="form-input character-input" placeholder="Add a tag" id="tags">
+                        <button class="add-btn" onclick="addCharacter()">+</button>
+                    </div>
+                    <div class="character-list" id="characterList"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Category
+                        <span class="info-tooltip" title="Select the genre or category for your story">i</span>
+                    </label>
+                    <div class="select-wrapper">
+                        <select class="form-select" id="storyCategory">
+                            <option value="">Select a category</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="non-fiction">Non-Fiction</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="romance">Romance</option>
+                            <option value="sci-fi">Science Fiction</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="thriller">Thriller</option>
+                            <option value="biography">Biography</option>
+                            <option value="history">History</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Target Audience
+                        <span class="info-tooltip" title="Who are your target Audience">i</span>
+                    </label>
+                    <div class="select-wrapper">
+                        <select class="form-select" id="storyAudience">
+                            <option value="">Select a target Audience</option>
+                            <option value="fiction">Young Adult(13-18)</option>
+                            <option value="non-fiction">New Adult(19-25)</option>
+                            <option value="mystery">Adult(25 above)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Story Status
+                        <span class="info-tooltip" title="Story Status">i</span>
+                    </label>
+                    <div class="select-wrapper">
+                        <select class="form-select" id="storyStatus">
+                            <option value="">Story Status</option>
+                            <option value="fiction">Ongoing</option>
+                            <option value="non-fiction">Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Mature Content
+                        <span class="info-tooltip" title="Mature Content">i</span>
+                    </label>
+                    <div class="select-wrapper">
+                        <select class="form-select" id="matureContent">
+                            <option value="">Mature Content</option>
+                            <option value="yes-mature">Yes</option>
+                            <option value="no-mature">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Premium Content
+                        <span class="info-tooltip" title="Premium Status">i</span>
+                    </label>
+                    <div class="select-wrapper">
+                        <select class="form-select" id="Premium">
+                            <option value="">Premium</option>
+                            <option value="yes-premium">Yes</option>
+                            <option value="no-premium">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="coverInput" accept="image/*" style="display: none;">
+
+    <script>
+        let characters = [];
+
+        function goBack() {
+            if (confirm('Are you sure you want to go back? Any unsaved changes will be lost.')) {
+                window.history.back();
+            }
+        }
+
+        function uploadCover() {
+            document.getElementById('coverInput').click();
+        }
+
+        function addCharacter() {
+            const nameInput = document.getElementById('characterName');
+            const name = nameInput.value.trim();
+            
+            if (name && !characters.includes(name)) {
+                characters.push(name);
+                nameInput.value = '';
+                renderCharacters();
+            }
+        }
+
+        function removeCharacter(index) {
+            characters.splice(index, 1);
+            renderCharacters();
+        }
+
+        function renderCharacters() {
+            const characterList = document.getElementById('characterList');
+            characterList.innerHTML = characters.map((character, index) => `
+                <div class="character-item">
+                    <span class="character-name">${character}</span>
+                    <button class="remove-btn" onclick="removeCharacter(${index})">×</button>
+                </div>
+            `).join('');
+        }
+
+        function resetForm() {
+            document.getElementById('storyTitle').value = '';
+            document.getElementById('storyDescription').value = '';
+            document.getElementById('characterName').value = '';
+            document.getElementById('storyCategory').value = '';
+            characters = [];
+            renderCharacters();
+        }
+
+        // Handle cover image upload
+        document.getElementById('coverInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const coverUpload = document.querySelector('.cover-upload');
+                    coverUpload.innerHTML = `
+                        <img src="${e.target.result}" alt="Cover" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px;">
+                        <div class="cover-text">Change cover</div>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle Enter key in character input
+        document.getElementById('characterName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addCharacter();
+            }
+        });
+
+        // Auto-update title in header
+        document.getElementById('storyTitle').addEventListener('input', function(e) {
+            const headerTitle = document.querySelector('.header-main');
+            headerTitle.textContent = e.target.value || 'Untitled Story';
+        });
+    </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.virinchi.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-public String postLoginPage(@ModelAttribute User ur, Model m)
+public String postLoginPage(@ModelAttribute User ur, Model m, HttpSession session)
 	{
 		String username= ur.getUsername();
 		String password= ur.getPassword();
@@ -36,12 +37,23 @@ String hashPassword =DigestUtils.md5Hex(password.getBytes());
 boolean result=	uRepo.existsByUsernameAndPassword(username, hashPassword);
 if(result==true)
 {
-		return "homePage";
+	session.setAttribute("activeUser", username);
+	session.setMaxInactiveInterval(20);
+	m.addAttribute("uList", uRepo.findAll());
+		return "home";
 }
 else
 {
 m.addAttribute("loginerror","Username or Password Incorrect");
 	return "login";
 }
+	}
+
+
+
+	@GetMapping("/logout")
+	public String logoutPage(HttpSession session){
+		session.invalidate();
+		return "index";
 	}
 }

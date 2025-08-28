@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class Admin {
 	
 	//Hibernate will help create a table named "User" with an annotation provided to the class, the annotation is "@Entity"
 	
@@ -14,7 +14,6 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//GeneratedValue= auto_increment
 	private int id; //primary key, auto_increment
-	private String name;
 	private String username;
 	private String email;
 	private String gender;
@@ -26,13 +25,6 @@ public class User {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getUsername() {
 		return username;

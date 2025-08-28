@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiara Story</title>
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--css-->
+    <link rel="stylesheet" href="css/admin.css">
+    <!--swiper js-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+</head>
+<body>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.png" alt="logo">
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="admin" class="menu-item" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a></li>
+                <li><a href="viewuser" class="menu-item active" data-section="users">
+                    <i class="fa-solid fa-user"></i> All Users
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="books">
+                    <i class="fa-solid fa-book"></i> All Books
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="pre-mium">
+                    <i class="fa-solid fa-coins"></i> Premium Match
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="logistics">
+                    <i class="fas fa-truck"></i> Logistics
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="security">
+                    <i class="fas fa-lock"></i> Security
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin User</span>
+                </div>
+                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                    <h1 id="page-title">Total Active Users</h1>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </header>
+
+            
+            <!-- Users Section -->
+            <section id="users" class="content-section active">
+                <table class="table"><thead class="thead-dark">
+				<tr>
+					<td>Id</td>
+				    <td>Name</td>
+				    <td>Username</td>
+				    <td>Password</td>
+				    <td>Email</td>
+				    <td>Gender</td>
+				    <td>Date of Birth</td>
+				    <td>Action</td>
+				</tr>
+				
+				    <tr th:each="u:${uList}">
+				    	<td th:text="${u.getId()}"></td>
+				    	<td th:text="${u.getName()}"></td>
+				        <td th:text="${u.getUsername()}"></td>
+				        <td th:text="${u.getPassword()}"></td>
+				        <td th:text="${u.getEmail()}"></td>
+				        <td th:text="${u.getGender()}"></td>
+				        <td th:text="${u.getDate()}"></td>
+				        <td>
+						<form action="deleteUser" method="post" style="display:inline;">
+						<input type="hidden" name="userId" value="<%=u.getId() %>">
+						<button type="submit" class="btn" style="background-color: green; color: white;">Edit</button>
+						<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+						</form>
+						</td>
+				    </tr>
+				
+				</table>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

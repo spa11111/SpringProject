@@ -48,7 +48,7 @@
                     <p>Notification</p>
                     <p>Settings</p>
                     <p>Help</p>
-                    <p>Log out</p>
+                   <a href="logout" style="text-decoration: none;">Log out</a>
                 </div>
                 </div>
                 </li>
@@ -319,6 +319,21 @@
 
     <!-- custom js-->
     <script src="js/script.js"></script>
+    <script>
+        const header = document.querySelector("header");
+        const hambugerBtn = document.querySelector("#hamburgor-btn");
+        const closeMenuBtn = document.querySelector("#close-button");
+
+        hambugerBtn.addEventListener("click", () =>{
+            header.classList.toggle("show-mobile-menu");
+        })
+
+        closeMenuBtn.addEventListener("click", () =>{
+            hambugerBtn.click();
+        })
+        
+        
+    </script>
 
     <script>
         function openModal() {

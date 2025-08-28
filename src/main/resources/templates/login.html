@@ -21,6 +21,8 @@
             <div class="text-center">
              <img src="images/logo.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
             </div>
+            
+            <p style="color:red; text-align: center; font-size: 14px; "  th:text="${loginerror}"> </p>
 
             <div class="input-box">
                 <input type="text" placeholder="Username" name="username" required>
@@ -36,7 +38,7 @@
                 <label><input type="checkbox">Remember me</label>
             </div>
 
-           <input class="btn" type="submit" placeholder="Login">
+           <input class="btn" type="submit" value="Login">
 
             <div class="register-link">
                 <p>Don't have an account? <a href="signup">Register</a></p>

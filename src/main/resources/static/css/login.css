@@ -28,6 +28,11 @@ body{
     text-align: center !important;
 }
 
+.text-center h1{
+	font-size: 20px;
+	color: var(--primary-color);
+}
+
 .wrapper{
     width: 420px;
     color: var(--text-color);
@@ -38,7 +43,7 @@ body{
 }
 
 .wrapper h1{
-    font-size: 36px;
+    font-size: 32px;
     text-align: center;
 }
 

@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiara Story</title>
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--css-->
+    <link rel="stylesheet" href="css/admin.css">
+    <!--swiper js-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+</head>
+<body>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.png" alt="logo">
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a></li>
+                <li><a href="viewuser" class="menu-item" data-section="users">
+                    <i class="fa-solid fa-user"></i> All Users
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="books">
+                    <i class="fa-solid fa-book"></i> All Books
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="pre-mium">
+                    <i class="fa-solid fa-coins"></i> Premium Match
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="logistics">
+                    <i class="fas fa-truck"></i> Logistics
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="security">
+                    <i class="fas fa-lock"></i> Security
+                </a></li>
+                <li><a href="#" class="menu-item" data-section="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin User</span>
+                </div>
+                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                    <h1 id="page-title">Dashboard Overview</h1>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-users">1,234</h3>
+                            <p>Total Users</p>
+                            <span class="stat-change positive">+12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-orders">856</h3>
+                            <p>Total Books</p>
+                            <span class="stat-change positive">+8%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-revenue">$45,678</h3>
+                            <p>Revenue</p>
+                            <span class="stat-change negative">-3%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="active-shipments">23</h3>
+                            <p>Active Shipments</p>
+                            <span class="stat-change positive">+5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="active-shipments">23</h3>
+                            <p>Active Shipments</p>
+                            <span class="stat-change positive">+5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="active-shipments">23</h3>
+                            <p>Active Shipments</p>
+                            <span class="stat-change positive">+5%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>Sales Overview</h3>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>User Activity</h3>
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="activity-list">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Users Section -->
+            <section id="users" class="content-section">
+                <table class="table table-striped">
+				<tr>
+				<td>Id</td>
+				    <td>Username</td>
+				    <td>Password</td>
+				</tr>
+				
+				    <tr th:each="u:${uList}">
+				        <td th:text="${u.getId()}"></td>
+				        <td th:text="${u.getUsername()}"></td>
+				        <td th:text="${u.getPassword()}"></td>
+				    </tr>
+				
+				</table>
+            </section>
+
+            <!-- Logistics Section -->
+            <section id="logistics" class="content-section">
+                <div class="logistics-header">
+                    <h2>Logistics Management</h2>
+                    <button class="btn btn-primary" onclick="addNewShipment()">
+                        <i class="fas fa-plus"></i> New Shipment
+                    </button>
+                </div>
+
+                <div class="logistics-stats">
+                    <div class="logistics-card">
+                        <h4>In Transit</h4>
+                        <span class="logistics-number" id="in-transit">15</span>
+                    </div>
+                    <div class="logistics-card">
+                        <h4>Delivered</h4>
+                        <span class="logistics-number" id="delivered">142</span>
+                    </div>
+                    <div class="logistics-card">
+                        <h4>Pending</h4>
+                        <span class="logistics-number" id="pending">8</span>
+                    </div>
+                </div>
+
+                <div class="shipments-table">
+                    <h3>Active Shipments</h3>
+                    <div class="table-controls">
+                        <input type="text" id="shipment-search" placeholder="Search shipments..." class="search-input">
+                        <select id="status-filter" class="filter-select">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-transit">In Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </div>
+                    <table id="shipments-table">
+                        <thead>
+                            <tr>
+                                <th>Tracking ID</th>
+                                <th>Destination</th>
+                                <th>Status</th>
+                                <th>ETA</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shipments-tbody">
+                            <!-- Dynamic content will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section id="security" class="content-section">
+                <div class="security-header">
+                    <h2>Security Management</h2>
+                    <button class="btn btn-primary" onclick="addNewUser()">
+                        <i class="fas fa-user-plus"></i> Add User
+                    </button>
+                </div>
+
+                <div class="security-stats">
+                    <div class="security-card">
+                        <h4>Active Users</h4>
+                        <span class="security-number" id="active-users">89</span>
+                    </div>
+                    <div class="security-card">
+                        <h4>Failed Logins</h4>
+                        <span class="security-number warning" id="failed-logins">12</span>
+                    </div>
+                    <div class="security-card">
+                        <h4>Security Alerts</h4>
+                        <span class="security-number danger" id="security-alerts">3</span>
+                    </div>
+                </div>
+
+                <div class="users-management">
+                    <h3>User Management</h3>
+                    <div class="table-controls">
+                        <input type="text" id="user-search" placeholder="Search users..." class="search-input">
+                        <select id="role-filter" class="filter-select">
+                            <option value="">All Roles</option>
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                    <table id="users-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Last Login</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-tbody">
+                            <!-- Dynamic content will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="security-logs">
+                    <h3>Security Logs</h3>
+                    <div class="logs-container" id="security-logs">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <div class="settings-container">
+                    <h2>System Settings</h2>
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>General Settings</h3>
+                            <div class="setting-item">
+                                <label>Site Name</label>
+                                <input type="text" value="Admin Panel" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Timezone</label>
+                                <select class="setting-select">
+                                    <option>UTC</option>
+                                    <option>EST</option>
+                                    <option>PST</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="settings-card">
+                            <h3>Security Settings</h3>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" checked> Two-Factor Authentication
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox"> Email Notifications
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Modal Title</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic content -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" id="modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- custom js-->
+    <script src="js/admin.js"></script>
+</body>
+</html>

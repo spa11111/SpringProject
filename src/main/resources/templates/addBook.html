@@ -38,8 +38,11 @@
         <div class="main-content">
             <div class="left-panel">
                 <div class="cover-upload" onclick="uploadCover()">
-                    <div class="cover-icon">C</div>
-                    <div class="cover-text">Add a cover</div>
+                  
+                    <form method="post" action="gallery" enctype="multipart/form-data">
+					    <input type="file" name="image" class="cover-icon"><br><br>
+					    <input type="submit" value="Add a cover" class="cover-text">
+					</form>
                 </div>
                 <div class="info-icon" title="Upload a cover image for your story">i</div>
             </div>

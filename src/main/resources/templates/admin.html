@@ -15,26 +15,55 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!--css-->
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/hf.css">
     <!--swiper js-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </head>
 <body>
 
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            
+            <ul class="menu-links">
+                <span id="close-button" class="material-symbols-outlined">close</span>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#browse">Browse</a></li>
+                <li><a href="#community ">Community</a></li>
+                <li><a href="#writer ">Writer</a></li>
+
+                <li>
+                <form action="#" class="search-form">
+                <input type="text" placeholder="Search" required>
+                <button class="material-symbols-outlined"><i class='bx  bx-search'  ></i> </button>
+                </form>
+                </li>
+                <li class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                </li>
+
+            </ul>
+            <span id="hamburgor-btn" class="material-symbols-outlined">menu</span> 
+        </nav>
+    </header>
+
+
     <div class="admin-container">
         <!-- Sidebar -->
         <nav class="sidebar">
-            <div class="sidebar-header">
-                <img src="images/logo.png" alt="logo">
-            </div>
+   
             <ul class="sidebar-menu">
-                <li><a href="#" class="menu-item active" data-section="dashboard">
+                <li><a href="admin" class="menu-item active" data-section="dashboard">
                     <i class="fas fa-tachometer-alt"></i> Dashboard
                 </a></li>
                 <li><a href="viewuser" class="menu-item" data-section="users">
                     <i class="fa-solid fa-user"></i> All Users
                 </a></li>
-                <li><a href="#" class="menu-item" data-section="books">
+                <li><a href="viewbook" class="menu-item" data-section="books">
                     <i class="fa-solid fa-book"></i> All Books
                 </a></li>
                 <li><a href="#" class="menu-item" data-section="pre-mium">
@@ -61,21 +90,7 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="top-header">
-                <div class="header-left">
-                    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
-                    <h1 id="page-title">Dashboard Overview</h1>
-                </div>
-                <div class="header-right">
-                    <div class="notifications">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-count">3</span>
-                    </div>
-                    <div class="user-avatar">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                </div>
-            </header>
+            
 
             <!-- Dashboard Section -->
             <section id="dashboard" class="content-section active">
@@ -85,71 +100,72 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="stat-info">
-                            <h3 id="total-users">1,234</h3>
-                            <p>Total Users</p>
-                            <span class="stat-change positive">+12%</span>
+                            <h3 id="total-users">5,234</h3>
+                            <p>Active Users</p>
+                            <span class="stat-change positive">+8% from last month</span>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <i class="fas fa-box"></i>
+                            <i class="fa-solid fa-book"></i>
                         </div>
                         <div class="stat-info">
-                            <h3 id="total-orders">856</h3>
-                            <p>Total Books</p>
-                            <span class="stat-change positive">+8%</span>
+                            <h3 id="total-orders">1,856</h3>
+                            <p>Total Stories</p>
+                            <span class="stat-change positive">+12% from last month</span>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <i class="fas fa-dollar-sign"></i>
+                            <i class="fa-solid fa-arrows-rotate"></i>
                         </div>
                         <div class="stat-info">
-                            <h3 id="total-revenue">$45,678</h3>
-                            <p>Revenue</p>
-                            <span class="stat-change negative">-3%</span>
+                            <h3 id="total-revenue">68.8%</h3>
+                            <p>Total Engagement</p>
+                            <span class="stat-change negative">-3% from last month</span>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <i class="fas fa-truck"></i>
+                            <i class="fa-solid fa-user"></i>
                         </div>
                         <div class="stat-info">
-                            <h3 id="active-shipments">23</h3>
-                            <p>Active Shipments</p>
-                            <span class="stat-change positive">+5%</span>
+                            <h3 id="active-shipments">100</h3>
+                            <p>New accounts</p>
+                            <span class="stat-change positive">Today</span>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <i class="fas fa-truck"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3 id="active-shipments">23</h3>
-                            <p>Active Shipments</p>
-                            <span class="stat-change positive">+5%</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-truck"></i>
+                            <i class="fa-brands fa-stack-exchange"></i>
                         </div>
                         <div class="stat-info">
                             <h3 id="active-shipments">23</h3>
-                            <p>Active Shipments</p>
-                            <span class="stat-change positive">+5%</span>
+                            <p>Updates today</p>
+                            <span class="stat-change positive">Today</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                           <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="active-shipments">59</h3>
+                            <p>Premium content</p>
+                            <span class="stat-change positive">+5% from last month</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="charts-grid">
                     <div class="chart-container">
-                        <h3>Sales Overview</h3>
-                        <canvas id="salesChart"></canvas>
+                        <h3>User Engagement</h3>
+                        <canvas id="engagementChart"></canvas>
                     </div>
+                
                     <div class="chart-container">
                         <h3>User Activity</h3>
-                        <canvas id="activityChart"></canvas>
+                        <canvas id="myChart" width="400" height="255"></canvas>
                     </div>
                 </div>
 
@@ -159,24 +175,6 @@
                         <!-- Dynamic content will be inserted here -->
                     </div>
                 </div>
-            </section>
-            
-            <!-- Users Section -->
-            <section id="users" class="content-section">
-                <table class="table table-striped">
-				<tr>
-				<td>Id</td>
-				    <td>Username</td>
-				    <td>Password</td>
-				</tr>
-				
-				    <tr th:each="u:${uList}">
-				        <td th:text="${u.getId()}"></td>
-				        <td th:text="${u.getUsername()}"></td>
-				        <td th:text="${u.getPassword()}"></td>
-				    </tr>
-				
-				</table>
             </section>
 
             <!-- Logistics Section -->
@@ -348,6 +346,63 @@
     </div>
 
     <!-- custom js-->
+
+  
+    <script>
+    const cetx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(cetx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Female', 'Male', 'Other', 'Private'],
+        datasets: [{
+          data: [48, 30, 2, 20],
+          backgroundColor: ['#e69f00', '#56b4e9', '#009e73', '#f0e442'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'right' },
+        }
+      }
+    });
+
+    const ctx = document.getElementById('engagementChart').getContext('2d');
+    const engagementChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [
+          'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ],
+        datasets: [{
+          label: 'User Engagement',
+          data: [75, 60, 82, 55, 48, 65, 72, 50, 40, 58, 70, 85], // Example values
+          fill: true,
+          borderColor: '#4A90E2',
+          backgroundColor: 'rgba(74, 144, 226, 0.2)',
+          tension: 0.3,   // smooth curve
+          pointBackgroundColor: '#4A90E2',
+          pointRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true, position: 'top' }
+        },
+        scales: {
+          y: {
+            min: 0,
+            max: 100,
+            ticks: { stepSize: 20 }
+          }
+        }
+      }
+    });
+  </script>
+
+  
     <script src="js/admin.js"></script>
 </body>
 </html>

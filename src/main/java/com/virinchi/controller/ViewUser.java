@@ -19,15 +19,9 @@ public class ViewUser {
 	private UserRepository urepo;
 	@GetMapping("/viewuser")
 	private String user(Model m, HttpSession session) {
-		if(session.getAttribute("activeUser") != null) {
 			List<User> uList= urepo.findAll();
 			m.addAttribute("uList", uList);
 			return "viewuser";
-		}
-		else
-        {
-            return "index";
-        }
 
 	}
 

@@ -30,8 +30,8 @@
                 </div>
             </div>
             <div class="header-actions">
-                <button class="btn btn-dark">Cancel</button>
-                <button class="btn btn-primary">Next</button>
+                <a href="profile" class="btn btn-dark">Cancel</a>
+                <a href="write" class="btn btn-primary">Next</a>
             </div>
         </header>
 
@@ -52,7 +52,7 @@
 
                 <div class="form-group">
                     <label class="form-label">Title</label>
-                    <input type="text" class="form-input" placeholder="Untitled Story" id="storyTitle">
+                    <input type="text" class="form-input" placeholder="Untitled Story" id="storyTitle" name="title">
                 </div>
 
                 <div class="form-group">
@@ -135,7 +135,7 @@
                         <span class="info-tooltip" title="Story Status">i</span>
                     </label>
                     <div class="select-wrapper">
-                        <select class="form-select" id="storyStatus">
+                        <select class="form-select" id="storyStatus" name="status">
                             <option value="">Story Status</option>
                             <option value="fiction">Ongoing</option>
                             <option value="non-fiction">Completed</option>
@@ -163,7 +163,7 @@
                         <span class="info-tooltip" title="Premium Status">i</span>
                     </label>
                     <div class="select-wrapper">
-                        <select class="form-select" id="Premium">
+                        <select class="form-select" id="Premium" name="premium">
                             <option value="">Premium</option>
                             <option value="yes-premium">Yes</option>
                             <option value="no-premium">No</option>

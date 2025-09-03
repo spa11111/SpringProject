@@ -35,7 +35,6 @@ body{
     width: 250px;
     background: #f5f5f5;
     color: var(--text-color);
-    position: fixed;
     height: 100vh;
     left: 0;
     top: 0;
@@ -44,17 +43,6 @@ body{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
  
-.sidebar-header {
-    text-align: center;
-    padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-header h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
 .sidebar-menu {
     list-style: none;
     padding: 20px 0;
@@ -103,18 +91,21 @@ body{
 .logout-btn {
     background: none;
     border: none;
+    color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
     padding: 5px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
 }
 
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
 /* Main Content */
 .main-content {
     flex: 1;
-    margin-left: 250px;
-    transition: margin-left 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .top-header {
@@ -226,10 +217,12 @@ body{
     color: white;
 }
 
-.stat-card:nth-child(1) .stat-icon { background: #667eea; }
-.stat-card:nth-child(2) .stat-icon { background: #f093fb; }
-.stat-card:nth-child(3) .stat-icon { background: #4facfe; }
-.stat-card:nth-child(4) .stat-icon { background: #43e97b; }
+.stat-card:nth-child(1) .stat-icon { background: white; border: 1px solid #000; color: #000; }
+.stat-card:nth-child(2) .stat-icon { background: white; border: 1px solid #000;   color: #000;}
+.stat-card:nth-child(3) .stat-icon { background: white; border: 1px solid #000; color: #000; }
+.stat-card:nth-child(4) .stat-icon { background: white; border: 1px solid #000; color: #000;  }
+.stat-card:nth-child(5) .stat-icon { background: white; border: 1px solid #000; color: #000; }
+.stat-card:nth-child(6) .stat-icon {background: white; border: 1px solid #000; color: #000;}
 
 .stat-info h3 {
     font-size: 2rem;

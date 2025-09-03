@@ -14,15 +14,8 @@ import java.util.List;
 
 @Controller
 public class IndexController {
-/* 
- * Controller is just like servlet technology
- * It handles all the getter and setter functions
- * with  the help of HTTP protocol
- * 	
- */
 	
-	//COntroller provides - GetMapping, PostMapping
-@Autowired
+	@Autowired
 	private UserRepository uRepo;
 	
 @GetMapping("/")

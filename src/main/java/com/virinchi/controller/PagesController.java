@@ -17,29 +17,7 @@ public class PagesController {
 	
 	//Controller provides: GetMapping and PostMapping
 	
-	@GetMapping("/normalBook")
-  
-	public String normalBook(HttpSession session) {
-		if(session.getAttribute("activeUser") != null) {
-		return "bookDescribe";
-        }
-        else
-        {
-            return "index";
-        }
-	}
 
-	@GetMapping("/premiumBook")
-	public String premiumBook(HttpSession session) {
-		if(session.getAttribute("activeUser") != null) {
-		return "bookDescription";
-		}
-		else
-        {
-            return "index";
-        }
-		
-	}
 	
 	@GetMapping("/chapter")
 	public String BookStory(HttpSession session) {
@@ -63,16 +41,6 @@ public class PagesController {
         }
 	}
 	
-	@GetMapping("/new")
-	public String NewBook(HttpSession session) {
-		if(session.getAttribute("activeUser") != null) {
-		return "addBook";
-		}
-		else
-        {
-            return "index";
-        }
-	}
 	
 	
 }

@@ -10,21 +10,21 @@ import com.virinchi.service.StoryService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class DescribeController {
+public class ChapterController {
 
     private final StoryService storyService;
 
-    public DescribeController(StoryService storyService) {
+    public ChapterController(StoryService storyService) {
         this.storyService = storyService;
     }
 
-    @GetMapping("/normalBook/{id}")
-    public String bookDescribe(@PathVariable Long id, HttpSession session, Model model) {
+    @GetMapping("/read/{id}")
+    public String readBook(@PathVariable Long id, HttpSession session, Model model) {
         if (session.getAttribute("activeUser") == null) {
             return "index";
         }
         Story story = storyService.getStory(id);
         model.addAttribute("story", story);
-        return "bookDescribe"; // must match bookDescribe.html
+        return "readBook"; // must match readBook.html
     }
 }

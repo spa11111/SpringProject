@@ -38,7 +38,7 @@ boolean result=	uRepo.existsByUsernameAndPassword(username, hashPassword);
 if(result==true)
 {
 	session.setAttribute("activeUser", username);
-	session.setMaxInactiveInterval(20);
+	session.setMaxInactiveInterval(600);
 	m.addAttribute("uList", uRepo.findAll());
 		return "home";
 }

@@ -1,16 +1,18 @@
 package com.virinchi.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 
-public class Book {
+@Entity
+public class Story {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 	
 	@Lob //Large Objects- Byte as String
     @Column (columnDefinition = "mediumblob")
@@ -19,13 +21,13 @@ public class Book {
 	private String title;
 	private String author;
 	private String views;
-	private String votes;
+	private int votes;
 	private String status;
 	private String premium;
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getImage() {
@@ -52,10 +54,10 @@ public class Book {
 	public void setViews(String views) {
 		this.views = views;
 	}
-	public String getVotes() {
+	public int getVotes() {
 		return votes;
 	}
-	public void setVotes(String votes) {
+	public void setVotes(int votes) {
 		this.votes = votes;
 	}
 	public String getStatus() {

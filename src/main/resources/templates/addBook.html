@@ -36,13 +36,13 @@
         </header>
 
         <div class="main-content">
+        <form method="post" action="new" enctype="multipart/form-data">
             <div class="left-panel">
+
                 <div class="cover-upload" onclick="uploadCover()">
                   
-                    <form method="post" action="gallery" enctype="multipart/form-data">
 					    <input type="file" name="image" class="cover-icon"><br><br>
 					    <input type="submit" value="Add a cover" class="cover-text">
-					</form>
                 </div>
                 <div class="info-icon" title="Upload a cover image for your story">i</div>
             </div>
@@ -171,6 +171,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 

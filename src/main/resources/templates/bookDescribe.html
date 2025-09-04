@@ -11,8 +11,8 @@
     <!--ICONS-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <!--css-->
-    <link rel="stylesheet" href="css/hf.css">
-    <link rel="stylesheet" href="css/describe.css">
+   <link rel="stylesheet" th:href="@{/css/hf.css}">
+<link rel="stylesheet" th:href="@{/css/describe.css}">
     <!--icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -20,7 +20,7 @@
     <!--Header starts-->
       <header>
         <nav class="navbar">
-            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            <a href="#" class="logo"><img th:src="@{/images/logo.png}" alt=""></a>
             
             <ul class="menu-links">
                 <span id="close-button" class="material-symbols-outlined">close</span>
@@ -40,7 +40,7 @@
 
                 <li>
                 <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn"><img src="images/user.png"></button>
+                <button onclick="myFunction()" class="dropbtn"><img th:src="@{/images/user.png}"></button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="#" style="text-decoration: none;">Profile</a>
                     <hr>
@@ -65,7 +65,7 @@
             <!-- Book Header -->
             <div class="book-header">
                 <div class="book-cover">
-                    <img src="images/1.png" alt="Falling for the Rockstar">
+                    <img th:src="@{/images/1.png}" alt="Falling for the Rockstar">
                 </div>
                 <div class="book-info">
                     <h1>Last Seen</h1>
@@ -83,7 +83,11 @@
                             <div class="stat-label">Parts</div>
                         </div>
                     </div>
-                    <a href="#" class="start-reading-btn">Start reading</a>
+<a th:href="@{/read/{id}(id=${story.id})}" class="start-reading-btn">
+    Start reading
+</a>
+
+
                 </div>
             </div>
 
@@ -173,7 +177,7 @@
                 <h3 class="rec-header">You may also like</h3>
                 
                 <div class="rec-item">
-                    <div class="rec-cover"><img src="images/11.png"></div>
+                    <div class="rec-cover"><img th:src="@{/images/11.png}"></div>
                     <div class="rec-info">
                         <h4>Lord Of Rings</h4>
                         <div class="rec-author">
@@ -187,7 +191,7 @@
                 </div>
 
                 <div class="rec-item">
-                    <div class="rec-cover"><img src="images/33.jpg"></div>
+                    <div class="rec-cover"><img th:src="@{/images/11.png}"></div>
                     <div class="rec-info">
                         <h4>Savage Fate</h4>
                         <div class="rec-author">

@@ -19,11 +19,17 @@ public class Story {
     private String image;
 	
 	private String title;
-	private String author;
-	private String views;
-	private int votes;
-	private String status;
-	private String premium;
+    private String subtitle;
+    private String description;
+    private String category;
+    private String audience;
+    private String status;
+    private String premium;
+    private String matureContent;
+    private int vote;
+    private int views;
+    
+    
 	public long getId() {
 		return id;
 	}
@@ -42,23 +48,29 @@ public class Story {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getAuthor() {
-		return author;
+	public String getSubtitle() {
+		return subtitle;
 	}
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
 	}
-	public String getViews() {
-		return views;
+	public String getDescription() {
+		return description;
 	}
-	public void setViews(String views) {
-		this.views = views;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public int getVotes() {
-		return votes;
+	public String getCategory() {
+		return category;
 	}
-	public void setVotes(int votes) {
-		this.votes = votes;
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getAudience() {
+		return audience;
+	}
+	public void setAudience(String audience) {
+		this.audience = audience;
 	}
 	public String getStatus() {
 		return status;
@@ -72,7 +84,26 @@ public class Story {
 	public void setPremium(String premium) {
 		this.premium = premium;
 	}
+	public String getMatureContent() {
+		return matureContent;
+	}
+	public void setMatureContent(String matureContent) {
+		this.matureContent = matureContent;
+	}
+	public int getVotes() {
+		return vote;
+	}
+	public void setVotes(int vote) {
+		this.vote = vote;
+	}
+	public int getViews() {
+		return views;
+	}
+	public void setViews(int views) {
+		this.views = views;
+	}
 	
+    
 	
 	
 }

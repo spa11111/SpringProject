@@ -20,7 +20,7 @@
     <!--Header starts-->
       <header>
         <nav class="navbar">
-            <a href="#" class="logo"><img th:src="@{/images/logo.png}" alt=""></a>
+            <a href="home" class="logo"><img th:src="@{/images/logo.png}" alt=""></a>
             
             <ul class="menu-links">
                 <span id="close-button" class="material-symbols-outlined">close</span>
@@ -75,7 +75,7 @@
                             <div class="stat-label">Reads</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">520</div>
+                            <div class="stat-number"><span th:text="${story.votes}">0</span></div>
                             <div class="stat-label">Votes</div>
                         </div>
                         <div class="stat">

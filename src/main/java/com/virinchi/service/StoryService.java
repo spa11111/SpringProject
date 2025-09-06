@@ -28,5 +28,9 @@ public class StoryService {
         story.setVotes(story.getVotes() + 1); // increment
         storyRepository.save(story);
     }
+    
+    public Story save(Story story) {
+        return storyRepository.save(story);
+    }
 
 }

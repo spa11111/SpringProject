@@ -134,6 +134,7 @@ body{
         .cover-upload {
             position: fixed;
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 16px;
             cursor: pointer;
@@ -145,6 +146,11 @@ body{
             width: 100%;
             max-width: 300px;
         }
+        
+        .cover-upload img{
+        	width: 100%;
+        	max-height: 200px;
+        }
 
         .cover-upload:hover {
             border-color: #9ca3af;
@@ -153,7 +159,7 @@ body{
 
         .cover-icon {
             width: 64px;
-            height: 64px;
+            max-height: 64px;
             background: #6b7280;
             border-radius: 8px;
             display: flex;
@@ -347,10 +353,6 @@ body{
             .main-content {
                 flex-direction: column;
             }
-            
-             .cover-upload {
-             	position: sticky;
-             }
             
             .left-panel {
                 border-right: none;

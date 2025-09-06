@@ -12,6 +12,6 @@ public class ExceptionHandling {
 
     public String maxSizeHandler(Model m){
         m.addAttribute("errorSize", "File Size Exceeded");
-        return "gallery";
+        return "addBook";
     }
 }

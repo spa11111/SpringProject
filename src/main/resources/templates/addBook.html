@@ -21,6 +21,8 @@
 </head>
 <body>
     <div class="container">
+    
+    <form method="post" action="new" enctype="multipart/form-data">
         <header class="header">
             <div class="header-left">
                 <button class="back-btn" onclick="goBack()">←</button>
@@ -30,21 +32,17 @@
                 </div>
             </div>
             <div class="header-actions">
-                <a href="profile" class="btn btn-dark">Cancel</a>
-                <a href="write" class="btn btn-primary">Next</a>
+                <button class="btn btn-dark">Cancel</button>
+                <input type="submit" class="btn btn-primary" value="Next"></input>
             </div>
         </header>
 
         <div class="main-content">
-        <form method="post" action="new" enctype="multipart/form-data">
             <div class="left-panel">
-
-                <div class="cover-upload" onclick="uploadCover()">
-                  
-					    <input type="file" name="image" class="cover-icon"><br><br>
-					    <input type="submit" value="Add a cover" class="cover-text">
-                </div>
-                <div class="info-icon" title="Upload a cover image for your story">i</div>
+            <p th:text="${errorSize}" style="color:red"></p>
+                <input type="file" name="image"><br><br>
+				<span th:each="img:${imageList}">
+				<img style="width:20%"  th:src="'data:image/jpeg;base64,'+${img.getImage()}">
             </div>
 
             <div class="right-panel">
@@ -57,7 +55,7 @@
 
                 <div class="form-group">
                     <label class="form-label">Subtitle</label>
-                    <input type="text" class="form-input" placeholder="Book Series" id="storyTitle">
+                    <input type="text" class="form-input" placeholder="Book Series" id="storyTitle" name="subtitle">
                 </div>
 
                 <div class="form-group">
@@ -65,7 +63,7 @@
                         Description
                         <span class="info-tooltip" title="Provide a brief description of your story">i</span>
                     </label>
-                    <textarea class="form-input textarea" placeholder="Enter story description..." id="storyDescription"></textarea>
+                    <textarea class="form-input textarea" placeholder="Enter story description..." id="storyDescription" name="description"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -98,7 +96,7 @@
                         <span class="info-tooltip" title="Select the genre or category for your story">i</span>
                     </label>
                     <div class="select-wrapper">
-                        <select class="form-select" id="storyCategory">
+                        <select class="form-select" id="storyCategory" name="category">
                             <option value="">Select a category</option>
                             <option value="fiction">Fiction</option>
                             <option value="non-fiction">Non-Fiction</option>
@@ -120,7 +118,7 @@
                         <span class="info-tooltip" title="Who are your target Audience">i</span>
                     </label>
                     <div class="select-wrapper">
-                        <select class="form-select" id="storyAudience">
+                        <select class="form-select" id="storyAudience" name="audience">
                             <option value="">Select a target Audience</option>
                             <option value="fiction">Young Adult(13-18)</option>
                             <option value="non-fiction">New Adult(19-25)</option>
@@ -149,7 +147,7 @@
                         <span class="info-tooltip" title="Mature Content">i</span>
                     </label>
                     <div class="select-wrapper">
-                        <select class="form-select" id="matureContent">
+                        <select class="form-select" id="matureContent" name="matureContent">
                             <option value="">Mature Content</option>
                             <option value="yes-mature">Yes</option>
                             <option value="no-mature">No</option>
@@ -171,76 +169,12 @@
                     </div>
                 </div>
             </div>
-            </form>
         </div>
+        </form>
     </div>
 
-    <input type="file" id="coverInput" accept="image/*" style="display: none;">
 
     <script>
-        let characters = [];
-
-        function goBack() {
-            if (confirm('Are you sure you want to go back? Any unsaved changes will be lost.')) {
-                window.history.back();
-            }
-        }
-
-        function uploadCover() {
-            document.getElementById('coverInput').click();
-        }
-
-        function addCharacter() {
-            const nameInput = document.getElementById('characterName');
-            const name = nameInput.value.trim();
-            
-            if (name && !characters.includes(name)) {
-                characters.push(name);
-                nameInput.value = '';
-                renderCharacters();
-            }
-        }
-
-        function removeCharacter(index) {
-            characters.splice(index, 1);
-            renderCharacters();
-        }
-
-        function renderCharacters() {
-            const characterList = document.getElementById('characterList');
-            characterList.innerHTML = characters.map((character, index) => `
-                <div class="character-item">
-                    <span class="character-name">${character}</span>
-                    <button class="remove-btn" onclick="removeCharacter(${index})">×</button>
-                </div>
-            `).join('');
-        }
-
-        function resetForm() {
-            document.getElementById('storyTitle').value = '';
-            document.getElementById('storyDescription').value = '';
-            document.getElementById('characterName').value = '';
-            document.getElementById('storyCategory').value = '';
-            characters = [];
-            renderCharacters();
-        }
-
-        // Handle cover image upload
-        document.getElementById('coverInput').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const coverUpload = document.querySelector('.cover-upload');
-                    coverUpload.innerHTML = `
-                        <img src="${e.target.result}" alt="Cover" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px;">
-                        <div class="cover-text">Change cover</div>
-                    `;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
         // Handle Enter key in character input
         document.getElementById('characterName').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {

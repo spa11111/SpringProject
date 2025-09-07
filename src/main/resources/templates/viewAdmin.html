@@ -70,7 +70,7 @@
                 <li><a href="admin" class="menu-item" data-section="dashboard">
                     <i class="fas fa-tachometer-alt"></i> Dashboard
                 </a></li>
-                <li><a href="viewuser" class="menu-item active" data-section="users">
+                <li><a href="viewuser" class="menu-item" data-section="users">
                     <i class="fa-solid fa-user"></i> All Users
                 </a></li>
                 <li><a href="stories" class="menu-item" data-section="books">
@@ -79,7 +79,7 @@
                 <li><a href="#" class="menu-item" data-section="pre-mium">
                     <i class="fa-solid fa-coins"></i> Premium Match
                 </a></li>
-                <li><a href="viewadmin" class="menu-item" data-section="admin">
+                <li><a href="viewadmin" class="menu-item active" data-section="admin">
                     <i class="fa-solid fa-user"></i> All Admins
                 </a></li>
                 <li><a href="#" class="menu-item" data-section="logistics">
@@ -105,17 +105,16 @@
             <header class="top-header">
                 <div class="header-left">
                     <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
-                    <h1 id="page-title">Total Active Users</h1>
+                    <h1 id="page-title">Admins</h1>
                 </div>
             </header>
 
             
-            <!-- Users Section -->
-            <section id="users" class="content-section active">
+            <!-- Admin Section -->
+            <section id="admin" class="content-section active">
                 <table class="table"><thead class="thead-dark">
 				<tr>
 					<td>Id</td>
-				    <td>Name</td>
 				    <td>Username</td>
 				    <td>Password</td>
 				    <td>Email</td>
@@ -124,19 +123,24 @@
 				    <td>Action</td>
 				</tr>
 				
-				    <tr th:each="u:${uList}">
-				    	<td th:text="${u.getId()}"></td>
-				    	<td th:text="${u.getName()}"></td>
-				        <td th:text="${u.getUsername()}"></td>
-				        <td th:text="${u.getPassword()}"></td>
-				        <td th:text="${u.getEmail()}"></td>
-				        <td th:text="${u.getGender()}"></td>
-				        <td th:text="${u.getDate()}"></td>
-				        <td>
-						<a href="edit"><i class='bx bx-edit' style='font-size:24px;'></i> </a>
-						<a href="del"><i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i> </a>
-						</td>
-				    </tr>
+				    <tr th:each="a : ${aList}">
+					    <td th:text="${a.id}"></td>
+					    <td th:text="${a.username}"></td>
+					    <td th:text="${a.password}"></td>
+					    <td th:text="${a.email}"></td>
+					    <td th:text="${a.gender}"></td>
+					    <td th:text="${a.date}"></td>
+					    <td>
+					        <a href="edit">
+					            <i class='bx bx-edit' style='font-size:24px;'></i>
+					        </a>
+					        <a href="del">
+					            <i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i>
+					        </a>
+					    </td>
+					</tr>
+
+
 				
 				</table>
             </section>

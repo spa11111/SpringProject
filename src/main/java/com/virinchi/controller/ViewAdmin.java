@@ -15,23 +15,22 @@ import com.virinchi.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class ViewUser {
+public class ViewAdmin {
 	
 	@Autowired
-	private UserRepository urepo;
-	@GetMapping("/viewuser")
-	private String user(Model m, HttpSession session) {
+	private AdminRepository arepo;
+	@GetMapping("/viewadmin")
+	private String Admins(Model m, HttpSession session) {
 		if(session.getAttribute("activeAdmin") != null) {
-			List<User> uList= urepo.findAll();
-			m.addAttribute("uList", uList);
-			return "viewuser";
+			List<Admin> aList= arepo.findAll();
+			m.addAttribute("aList", aList);
+			return "viewAdmin";
 		}
 		else {
-		    return "index";
+		    return "adminLogin";
 		}
 
 	}
-
 	
 
 }

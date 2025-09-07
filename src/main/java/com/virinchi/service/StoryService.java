@@ -25,7 +25,7 @@ public class StoryService {
     public void vote(Long id) {
         Story story = storyRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Story not found"));
-        story.setVotes(story.getVotes() + 1); // increment
+        story.setVote(story.getVote() + 1); // increment
         storyRepository.save(story);
     }
     

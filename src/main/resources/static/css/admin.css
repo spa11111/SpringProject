@@ -170,7 +170,7 @@ body{
 /* Content Sections */
 .content-section {
     display: none;
-    padding: 30px 120px;
+    padding: 30px 60px;
     animation: fadeIn 0.3s ease;
 }
 

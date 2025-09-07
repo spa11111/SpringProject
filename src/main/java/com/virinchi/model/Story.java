@@ -1,11 +1,14 @@
 package com.virinchi.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.Transient;
 
 @Entity
 public class Story {
@@ -14,9 +17,12 @@ public class Story {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-	@Lob //Large Objects- Byte as String
-    @Column (columnDefinition = "mediumblob")
-    private String image;
+	@Transient
+    private MultipartFile file;   // this matches the HTML "name=file"
+
+    @Lob
+    @Column(columnDefinition = "mediumblob")
+    private String image; 
 	
 	private String title;
     private String subtitle;
@@ -26,8 +32,11 @@ public class Story {
     private String status;
     private String premium;
     private String matureContent;
-    private int vote;
-    private int views;
+    @Column(name = "votes", nullable = false)
+    private int vote = 0;
+    @Column(name = "views", nullable = false)
+    private int views = 0;
+    
     
     
 	public long getId() {
@@ -35,6 +44,12 @@ public class Story {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 	public String getImage() {
 		return image;
@@ -90,10 +105,10 @@ public class Story {
 	public void setMatureContent(String matureContent) {
 		this.matureContent = matureContent;
 	}
-	public int getVotes() {
+	public int getVote() {
 		return vote;
 	}
-	public void setVotes(int vote) {
+	public void setVote(int vote) {
 		this.vote = vote;
 	}
 	public int getViews() {
@@ -102,6 +117,8 @@ public class Story {
 	public void setViews(int views) {
 		this.views = views;
 	}
+    
+    
 	
     
 	

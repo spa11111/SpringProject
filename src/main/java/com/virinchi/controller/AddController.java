@@ -6,13 +6,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Base64;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.virinchi.model.Story;
 import com.virinchi.repository.StoryRepository;
@@ -26,10 +29,11 @@ public class AddController {
 	StoryRepository storyrepo;
 	
 	@GetMapping("/new")
-    public String gallery(Model m, HttpSession session) {
+    public String Books(Model m, HttpSession session) {
 		if(session.getAttribute("activeUser") != null) {
-		m.addAttribute("imageList",storyrepo.findAll());
-		        return "addBook";
+			List<Story> story =storyrepo.findAll();
+				m.addAttribute("imageList",story);
+		        return "addBook";		 
 		}
 		else {
 		    return "index";
@@ -38,23 +42,25 @@ public class AddController {
     }
 	
 	@PostMapping("/new")
-    public String galleryPost(@RequestParam("image") MultipartFile image, Model m)
-    {
+    public String newGamePost(@ModelAttribute Story story) {
         try {
-            byte[] imgBytes= image.getBytes();
-			 Story imgObj= new Story();
-			 String imgString= Base64.getEncoder().encodeToString(imgBytes);
-			 //Sets the image data after its encoded in string
-			 imgObj.setImage(imgString);
-			
-			 storyrepo.save(imgObj);
-
+            if (story.getFile() != null && !story.getFile().isEmpty()) {
+                byte[] imageBytes = story.getFile().getBytes();
+                String imgString = Base64.getEncoder().encodeToString(imageBytes);
+                story.setImage(imgString);
+            }
+            storyrepo.save(story);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-        m.addAttribute("imageList",storyrepo.findAll());
-        return "userPage";
+        return "userPage";   // redirect where you want after save
     }
+
+
+
+
+
+	   
 	
 	
 }

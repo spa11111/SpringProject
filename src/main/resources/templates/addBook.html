@@ -21,8 +21,7 @@
 </head>
 <body>
     <div class="container">
-    
-    <form method="post" action="new" enctype="multipart/form-data">
+    <form action="/new" method="post" enctype="multipart/form-data">
         <header class="header">
             <div class="header-left">
                 <button class="back-btn" onclick="goBack()">←</button>
@@ -40,9 +39,8 @@
         <div class="main-content">
             <div class="left-panel">
             <p th:text="${errorSize}" style="color:red"></p>
-                <input type="file" name="image"><br><br>
-				<span th:each="img:${imageList}">
-				<img style="width:20%"  th:src="'data:image/jpeg;base64,'+${img.getImage()}">
+                <input type="file" name="file">
+                
             </div>
 
             <div class="right-panel">
@@ -135,8 +133,8 @@
                     <div class="select-wrapper">
                         <select class="form-select" id="storyStatus" name="status">
                             <option value="">Story Status</option>
-                            <option value="fiction">Ongoing</option>
-                            <option value="non-fiction">Completed</option>
+                            <option value="ongoing">Ongoing</option>
+                            <option value="completed">Completed</option>
                         </select>
                     </div>
                 </div>
@@ -149,8 +147,8 @@
                     <div class="select-wrapper">
                         <select class="form-select" id="matureContent" name="matureContent">
                             <option value="">Mature Content</option>
-                            <option value="yes-mature">Yes</option>
-                            <option value="no-mature">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
                         </select>
                     </div>
                 </div>
@@ -163,8 +161,8 @@
                     <div class="select-wrapper">
                         <select class="form-select" id="Premium" name="premium">
                             <option value="">Premium</option>
-                            <option value="yes-premium">Yes</option>
-                            <option value="no-premium">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
                         </select>
                     </div>
                 </div>
@@ -175,6 +173,50 @@
 
 
     <script>
+        let characters = [];
+
+        function goBack() {
+            if (confirm('Are you sure you want to go back? Any unsaved changes will be lost.')) {
+                window.history.back();
+            }
+        }
+
+        function addCharacter() {
+            const nameInput = document.getElementById('characterName');
+            const name = nameInput.value.trim();
+            
+            if (name && !characters.includes(name)) {
+                characters.push(name);
+                nameInput.value = '';
+                renderCharacters();
+            }
+        }
+
+        function removeCharacter(index) {
+            characters.splice(index, 1);
+            renderCharacters();
+        }
+
+        function renderCharacters() {
+            const characterList = document.getElementById('characterList');
+            characterList.innerHTML = characters.map((character, index) => `
+                <div class="character-item">
+                    <span class="character-name">${character}</span>
+                    <button class="remove-btn" onclick="removeCharacter(${index})">×</button>
+                </div>
+            `).join('');
+        }
+
+        function resetForm() {
+            document.getElementById('storyTitle').value = '';
+            document.getElementById('storyDescription').value = '';
+            document.getElementById('characterName').value = '';
+            document.getElementById('storyCategory').value = '';
+            characters = [];
+            renderCharacters();
+        }
+
+
         // Handle Enter key in character input
         document.getElementById('characterName').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {

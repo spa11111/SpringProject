@@ -24,6 +24,18 @@
 </head>
 <body>
 
+<style>
+    table {
+        border-collapse: collapse; /* removes double borders */
+        width: 100%;
+    }
+    table, th, td {
+        border: 1px solid black; /* adds border to all */
+    }
+</style>
+
+
+
     <header>
         <nav class="navbar">
             <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
@@ -69,6 +81,9 @@
                 <li><a href="#" class="menu-item" data-section="pre-mium">
                     <i class="fa-solid fa-coins"></i> Premium Match
                 </a></li>
+                <li><a href="viewadmin" class="menu-item" data-section="admin">
+                    <i class="fa-solid fa-user"></i> All Admins
+                </a></li>
                 <li><a href="#" class="menu-item" data-section="logistics">
                     <i class="fas fa-truck"></i> Logistics
                 </a></li>
@@ -103,29 +118,38 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Id</th>
+                            <th>BId</th>
+                            <th>Cover</th>
                             <th>Title</th>
-                            <th>Author</th>
-                            <th>Votes</th>
-                            <th>Views</th>
+                            <th>Subtitle</th>
+                            <th>Category</th>
                             <th>Status</th>
+                            <th>Views</th>
+                            <th>Vote</th>
                             <th>Premium</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="s : ${stories}">
-                            <td th:text="${s.id}"></td>
-                            <td th:text="${s.title}"></td>
-                            <td th:text="${s.author}"></td>
-                            <td th:text="${s.votes}"></td>
-                            <td th:text="${s.views}"></td>
-                            <td th:text="${s.status}"></td>
-                            <td th:text="${s.premium}"></td>
-                            <td>
-
-                            </td>
-                        </tr>
+                        <tr th:each="story : ${stories}">
+                <td th:text="${story.id}"></td>
+                <td>
+                    <img th:if="${story.image != null}" 
+                         th:src="'data:image/jpeg;base64,' + ${story.image}" 
+                         width="80" height="100"/>
+                </td>
+                <td th:text="${story.title}"></td>
+                <td th:text="${story.subtitle}"></td>
+                <td th:text="${story.category}"></td>
+                <td th:text="${story.status}"></td>
+                <td th:text="${story.views}"></td>
+                <td th:text="${story.vote}"></td>
+                <td th:text="${story.premium}"></td>
+                <td>
+						<a href="edit"><i class='bx bx-edit' style='font-size:24px;'></i> </a>
+						<a href="del"><i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i> </a>
+						</td>
+            </tr>
                     </tbody>
                 </table>
             </section>

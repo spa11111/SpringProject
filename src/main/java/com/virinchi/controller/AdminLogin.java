@@ -37,7 +37,7 @@ public String postLoginPage(@ModelAttribute Admin ar, Model m, HttpSession sessi
 		if(result==true)
 		{
 			session.setAttribute("activeAdmin", username);
-			session.setMaxInactiveInterval(20);
+			session.setMaxInactiveInterval(600);
 				return "admin";
 		}
 		else

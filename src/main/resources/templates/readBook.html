@@ -45,11 +45,12 @@
             
             <div class="right-section">
            
-            <form th:action="@{/stories/{id}/vote(id=${story.id})}" method="post">
+            <form th:action="@{/vote/{id}(id=${story.id})}" method="post">
 			    <button type="submit" class="vote-button">
 			        <i class='bx bx-star' style='color:#000000'></i> Vote
 			    </button>
 			</form>
+
 
 
             </div>
@@ -74,7 +75,7 @@
                 <span><i class='bx bx-message-dots' style='color:#000000'></i> 89</span>
                 <span>
 				    <i class='bx bxs-star' style='color:#000000'></i>
-				    <span th:text="${story.votes}">0</span>
+				    <span th:text="${story.vote}">0</span>
 				</span>
 
             </div>

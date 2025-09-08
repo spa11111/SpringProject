@@ -46,7 +46,7 @@
                 <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn"><img src="images/user.png"></button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="profile" style="text-decoration: none;">Profile</a>
+                    <a th:href="@{/userPage}" style="text-decoration: none;">Profile</a>
                     <hr>
                     <p>Inbox</p>
                     <p>Notification</p>
@@ -139,10 +139,9 @@
                 </div>
 
                 <div class="swiper-slide box">
-                    <img src="images/1.png">
+                    <img th:src="@{/images/1.png}">
                     <p>Last Seen</p>
-<a th:href="@{/normalBook/{id}(id=1)}">Go to Book</a>
-
+					<a th:href="@{/normalBook/{id}(id=2)}">View details</a>
 					</div>
 
                 <div class="swiper-slide box">

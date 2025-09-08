@@ -1,13 +1,20 @@
 package com.virinchi.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 
 @Entity
@@ -24,21 +31,27 @@ public class Story {
     @Column(columnDefinition = "mediumblob")
     private String image; 
 	
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    
+    @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Chapter> chapters = new ArrayList<>();
+    
 	private String title;
     private String subtitle;
     private String description;
     private String category;
     private String audience;
-    private String status;
+    private boolean published = false;
     private String premium;
     private String matureContent;
-    @Column(name = "votes", nullable = false)
+    @Column(name = "vote", nullable = false)
     private int vote = 0;
     @Column(name = "views", nullable = false)
     private int views = 0;
-    
-    
-    
+    @Column(name = "coins", nullable = false)
+    private int coins = 0;
 	public long getId() {
 		return id;
 	}
@@ -56,6 +69,18 @@ public class Story {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public List<Chapter> getChapters() {
+		return chapters;
+	}
+	public void setChapters(List<Chapter> chapters) {
+		this.chapters = chapters;
 	}
 	public String getTitle() {
 		return title;
@@ -87,11 +112,11 @@ public class Story {
 	public void setAudience(String audience) {
 		this.audience = audience;
 	}
-	public String getStatus() {
-		return status;
+	public boolean isPublished() {
+		return published;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setPublished(boolean published) {
+		this.published = published;
 	}
 	public String getPremium() {
 		return premium;
@@ -116,6 +141,12 @@ public class Story {
 	}
 	public void setViews(int views) {
 		this.views = views;
+	}
+	public int getCoins() {
+		return coins;
+	}
+	public void setCoins(int coins) {
+		this.coins = coins;
 	}
     
     

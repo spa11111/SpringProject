@@ -13,7 +13,7 @@ public class AdminController{
 		return "admin";
 		}
 		else {
-		    return "index";
+		    return "adminLogin";
 		}
 	}
 

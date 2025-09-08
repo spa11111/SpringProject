@@ -24,7 +24,7 @@ public class StoryController {
 	@Autowired
     private StoryRepository storyRepo;
 
-    @GetMapping("stories")
+    @GetMapping("/stories")
     public String listStories(Model model, HttpSession session) {
         // check if admin user is logged in
         if (session.getAttribute("activeAdmin") != null) {
@@ -32,7 +32,7 @@ public class StoryController {
             model.addAttribute("stories", stories);
             return "Stories"; // points to Stories.html
         }
-        return "redirect:/login"; // if not admin, redirect to login
+        return "redirect:/adminLogin"; // if not admin, redirect to login
     }
   
 

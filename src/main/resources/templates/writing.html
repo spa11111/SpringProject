@@ -15,8 +15,9 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
-    <link rel="stylesheet" href="css/writingChap.css">
-    <link rel="stylesheet" href="css/hf.css">
+    <link rel="stylesheet" th:href="@{/css/writingChap.css}">
+    <link rel="stylesheet" th:href="@{/css/hf.css}">
+
     <!--icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -291,11 +292,20 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-dark" id="confirmPublish">
-                        <i class="fas fa-upload me-2"></i>Publish Chapter
-                    </button>
-                </div>
+<form action="/publishChapter" method="post" id="publishForm">
+    <input type="hidden" name="storyId" th:value="${story.id}">
+    <input type="hidden" name="title" id="hiddenTitle">
+    <input type="hidden" name="content" id="hiddenContent">
+
+    <button type="submit" class="btn btn-dark">
+        <i class="fas fa-upload me-2"></i>Publish Chapter
+    </button>
+</form>
+
+
+
+</div>
+                
             </div>
         </div>
     </div>
@@ -304,5 +314,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="js/writing.js"></script>
+<script>
+document.getElementById("publishForm").addEventListener("submit", function () {
+    document.getElementById("hiddenTitle").value =
+        document.getElementById("chapterTitle").value;
+
+    // Use innerHTML to preserve formatting (bold, italic, etc.)
+    document.getElementById("hiddenContent").value =
+        document.getElementById("storyEditor").innerHTML;
+});
+
+</script>
+
+    
 </body>
 </html>

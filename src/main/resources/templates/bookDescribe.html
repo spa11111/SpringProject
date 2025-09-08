@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,24 +68,22 @@
                     <img th:src="@{/images/1.png}" alt="Falling for the Rockstar">
                 </div>
                 <div class="book-info">
-                    <h1>Last Seen</h1>
+                    <h1 th:text="${story.title}">Last Seen</h1>
                     <div class="book-stats">
                         <div class="stat">
                             <div class="stat-number">3K</div>
                             <div class="stat-label">Reads</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number"><span th:text="${story.votes}">0</span></div>
-                            <div class="stat-label">Votes</div>
-                        </div>
+						    <div class="stat-number" th:text="${story.vote}">520</div>
+						    <div class="stat-label">Votes</div>
+						</div>
                         <div class="stat">
                             <div class="stat-number">36</div>
                             <div class="stat-label">Parts</div>
                         </div>
                     </div>
-<a th:href="@{/read/{id}(id=${story.id})}" class="start-reading-btn">
-    Start reading
-</a>
+                    <a th:href="@{/read/{id}(id=${story.id})}" class="start-reading-btn">Start reading</a>
 
 
                 </div>

@@ -76,7 +76,7 @@
                 <li><a href="stories" class="menu-item" data-section="books">
                     <i class="fa-solid fa-book"></i> All Books
                 </a></li>
-                <li><a href="#" class="menu-item" data-section="pre-mium">
+                <li><a href="premium" class="menu-item" data-section="pre-mium">
                     <i class="fa-solid fa-coins"></i> Premium Match
                 </a></li>
                 <li><a href="viewadmin" class="menu-item" data-section="admin">
@@ -121,17 +121,19 @@
 				    <td>Email</td>
 				    <td>Gender</td>
 				    <td>Date of Birth</td>
+				    <td>Coins</td>
 				    <td>Action</td>
 				</tr>
 				
 				    <tr th:each="u:${uList}">
-				    	<td th:text="${u.getId()}"></td>
-				    	<td th:text="${u.getName()}"></td>
-				        <td th:text="${u.getUsername()}"></td>
-				        <td th:text="${u.getPassword()}"></td>
-				        <td th:text="${u.getEmail()}"></td>
-				        <td th:text="${u.getGender()}"></td>
-				        <td th:text="${u.getDate()}"></td>
+				    	<td th:text="${u.id}"></td>
+				    	<td th:text="${u.name}"></td>
+				        <td th:text="${u.username}"></td>
+				        <td th:text="${u.password}"></td>
+				        <td th:text="${u.email}"></td>
+				        <td th:text="${u.gender}"></td>
+				        <td th:text="${u.date}"></td>
+				        <td th:text="${u.coins}"></td>
 				        <td>
 						<a href="edit"><i class='bx bx-edit' style='font-size:24px;'></i> </a>
 						<a href="del"><i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i> </a>

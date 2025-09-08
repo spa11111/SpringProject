@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.virinchi.model.Story;
 import com.virinchi.service.StoryService;
+
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -25,6 +26,7 @@ public class DescribeController {
         }
         Story story = storyService.getStory(id);
         model.addAttribute("story", story);
-        return "bookDescribe"; // must match bookDescribe.html
+        return "bookDescribe"; // must match file name
     }
+
 }

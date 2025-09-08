@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.virinchi.model.Story;
+import com.virinchi.model.User;
 import com.virinchi.repository.StoryRepository;
+import com.virinchi.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -26,12 +28,15 @@ import jakarta.servlet.http.HttpSession;
 public class AddController {
 
 	@Autowired
-	StoryRepository storyrepo;
+	UserRepository userRepo;
+	
+	@Autowired
+	StoryRepository storyRepo;
 	
 	@GetMapping("/new")
     public String Books(Model m, HttpSession session) {
 		if(session.getAttribute("activeUser") != null) {
-			List<Story> story =storyrepo.findAll();
+			List<Story> story =storyRepo.findAll();
 				m.addAttribute("imageList",story);
 		        return "addBook";		 
 		}
@@ -41,20 +46,40 @@ public class AddController {
 
     }
 	
-	@PostMapping("/new")
-    public String newGamePost(@ModelAttribute Story story) {
-        try {
-            if (story.getFile() != null && !story.getFile().isEmpty()) {
-                byte[] imageBytes = story.getFile().getBytes();
-                String imgString = Base64.getEncoder().encodeToString(imageBytes);
-                story.setImage(imgString);
-            }
-            storyrepo.save(story);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "userPage";   // redirect where you want after save
-    }
+	@PostMapping("/createDraft")
+	public String createDraft(@ModelAttribute Story story,
+	                          @RequestParam("file") MultipartFile file,
+	                          HttpSession session) {
+	    String username = (String) session.getAttribute("activeUser");
+	    if (username == null) {
+	        return "redirect:/login";
+	    }
+
+	    User user = userRepo.findByUsername(username);
+	    story.setUser(user);
+	    story.setPublished(false); // default: draft (not yet published)
+
+	    // ✅ Handle file upload as Base64
+	    if (file != null && !file.isEmpty()) {
+	        try {
+	            // Convert to Base64 string
+	            String base64 = Base64.getEncoder().encodeToString(file.getBytes());
+	            story.setImage(base64); // directly save as Base64 in DB
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    storyRepo.save(story);
+
+	    // Redirect to writing page with story ID
+	    return "redirect:/writing/" + story.getId();
+	}
+
+
+
+
+
 
 
 

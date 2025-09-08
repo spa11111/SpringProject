@@ -27,7 +27,7 @@ public class ViewUser {
 			return "viewuser";
 		}
 		else {
-		    return "index";
+		    return "adminLogin";
 		}
 
 	}

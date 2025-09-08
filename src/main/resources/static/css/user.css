@@ -172,7 +172,13 @@ body{
 }
 
 .story-info {
-    flex: 1;
+    display: flex;
+        align-items: flex-start;
+    flex-direction: column;
+}
+
+.story-info p{
+	text-align: left;
 }
 
 .story-title {

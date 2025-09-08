@@ -16,8 +16,17 @@ public class PagesController {
  */
 	
 	//Controller provides: GetMapping and PostMapping
-	
 
+	@GetMapping("/premiumBook")
+	public String PremiumStory(HttpSession session) {
+		if(session.getAttribute("activeUser") != null) {
+		return "bookDescription";
+		}
+		else
+        {
+            return "index";
+        }
+	}
 	
 	@GetMapping("/chapter")
 	public String BookStory(HttpSession session) {
@@ -29,17 +38,7 @@ public class PagesController {
             return "index";
         }
 	}
-	
-	@GetMapping("/profile")
-	public String UserProfile(HttpSession session) {
-		if(session.getAttribute("activeUser") != null) {
-		return "userPage";
-		}
-		else
-        {
-            return "index";
-        }
-	}
+
 	
 	
 	

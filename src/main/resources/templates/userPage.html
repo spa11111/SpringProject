@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +25,7 @@
  <!--Header starts-->
       <header>
         <nav class="navbar">
-            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            <a href="home" class="logo"><img src="images/logo.png" alt=""></a>
             
             <ul class="menu-links">
                 <span id="close-button" class="material-symbols-outlined">close</span>
@@ -73,9 +73,15 @@
                             <img src="images/user.png" alt="user-avatar" class="profile-avatar">
                             <div>
                         <div class="user-user">
-                                <h1 class="h2 mb-2">Spiritual Awake<a href="#" class="user-coins">50<i class="bx  bxs-coin"></i></a></h1>
+								<h1 class="h2 mb-2">
+								    <span th:text="${user.name}"></span>
+								    <a class="user-coins">
+								        <span th:text="${user.coins}"></span>
+								        <i class="bx bxs-coin"></i>
+								    </a>
+								</h1>
                             </div>
-                                <p class="mb-2 opacity-75">@sp_00</p>
+                                <p class="mb-2 opacity-75" th:text="${user.username}"></p>
                                 <p class="mb-3 opacity-90">Fantasy author passionate about magical worlds and epic adventures. Creating stories that transport readers to enchanted realms.</p>
                                 <div class="d-flex align-items-center gap-3 flex-wrap">
                                     <span><i class="fas fa-map-marker-alt me-1"></i> Lalitpur, Nepal</span>
@@ -100,7 +106,7 @@
         <div class="row g-3">
             <div class="col-6 col-md-3">
                 <div class="stats-card p-3 text-center">
-                    <div class="stats-number">2</div>
+                    <div class="stats-number"><span th:text="${user.work}"></span></div>
                     <div class="stats-label">Works</div>
                 </div>
             </div>
@@ -136,76 +142,31 @@
             <div class="tab-content">
             <div class="tab-pane active" id="works">
                 <!-- Works Tab -->
-                     <div class="tab-pane active" id="works" >
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h3 class="h5 mb-0">2 Published Stories • 1 Drafts (only visible to you)</h3>
-                            <div class="dropdown">
+                       <div class="d-flex justify-content-between align-items-center mb-4">
+							<div class="dropdown">
                                 <a href="/new" class="btn btn-outline-secondary" type="button"> + New Story</a>
                             </div>
                         </div>
                         
                         <div class="story-list">
-                        
-                        <div class="story-item">
-                            <img th:src="'data:image/jpeg;base64,' + ${story.image}" 
-                         width="80" height="100" class="story-cover">
-                            <div class="story-info">
-                                <h3 class="story-title" th:text="${story.title}"></h3>
-                                <div class="story-stats">
-                                    <span><i class="fas fa-eye"></i> 1K</span>
-                                    <span><i class="fas fa-star"></i> 100</span>
-                                    <span><i class="fas fa-comment"></i> 230</span>
-                                </div>
-                                <p class="story-description">Zean Kanandra, the unruly bad boy, meets the cold and jealous student council president. One day, they get into a misunderstanding over a misplaced file.</p>
-                                <p class="draft-notice">Last published- 2 days ago</p>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="story-item">
-                            <img src="images/8.png" alt="book" class="story-cover">
-                            <div class="story-info">
-                                <h3 class="story-title">Kenze</h3>
-                                <div class="story-stats">
-                                    <span><i class="fas fa-eye"></i> 1K</span>
-                                    <span><i class="fas fa-star"></i> 100</span>
-                                    <span><i class="fas fa-comment"></i> 230</span>
-                                </div>
-                                <p class="story-description">Zean Kanandra, the unruly bad boy, meets the cold and jealous student council president. One day, they get into a misunderstanding over a misplaced file.</p>
-                                <p class="draft-notice">Last published- 2 days ago</p>
-                            </div>
-                        </div>
-
-                        <div class="story-item">
-                            <img src="images/38.jpg" alt="book" class="story-cover">
-                            <div class="story-info">
-                                <h3 class="story-title">Six Feet Deep</h3>
-                                <div class="story-stats">
-                                    <span><i class="fas fa-eye"></i> 3</span>
-                                    <span><i class="fas fa-star"></i> 1</span>
-                                    <span><i class="fas fa-comment"></i> 2</span>
-                                </div>
-                                <p class="story-description">One night of recklessness. That's what I wanted.<br>To lose control with the stranger who saved my life.</p>
-                                <p class="draft-notice">Last published- a moment ago</p>
-                            </div>
-                        </div>
-
-                        <div class="story-item">
-                            <img src="images/35.jpg" alt="book" class="story-cover">
-                            <div class="story-info">
-                                <h3 class="story-title">Breaking the Ice</h3>
-                                <div class="story-stats">
-                                    <span><i class="fas fa-eye"></i> 0</span>
-                                    <span><i class="fas fa-star"></i> 0</span>
-                                    <span><i class="fas fa-comment"></i> 0</span>
-                                </div>
-                                <p class="story-description">A star hockey captain and a small-town girl are forced together, igniting a romance that could melt the iciest of hearts.</p>
-                                <p class="draft-notice">DRAFT (only visible to you)</p>
-                            </div>
-                        </div>
-                    </div>
+                        <div th:each="story : ${stories}" class="story-item">
+       					 <img th:src="'data:image/jpeg;base64,' + ${story.image}" width="80" height="120"/ alt="Cover" class="cover-img"/>
+					       					
+					    <!-- Story Info -->
+					    <div class="story-info">
+					        <h4 th:text="${story.title}"></h4>
+					        <p th:text="${story.description}"></p>
+					
+					        <!-- Stats -->
+					        <div class="story-stats">
+					            <span><i class="fas fa-eye"></i> <span th:text="${story.views}"></span></span>
+					            <span><i class="fas fa-star"></i> <span th:text="${story.vote}"></span></span>
+					        </div>
+					    </div>
+					    <a href="del" ><i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i> </a>
+					</div>                      
                     <button class="show-more-btn">Show more <i class="fas fa-chevron-down"></i></button>
-                        </div>
+                       
             </div>
 
 
@@ -290,6 +251,7 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
   <script>
 document.addEventListener("DOMContentLoaded", function () {
   const tabButtons = document.querySelectorAll(".tab-btn");

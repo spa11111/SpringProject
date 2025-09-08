@@ -9,5 +9,7 @@ import com.virinchi.model.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 	
 	boolean existsByUsernameAndPassword(String username, String password);
+	
+	 User findByUsername(String username);
 
 }

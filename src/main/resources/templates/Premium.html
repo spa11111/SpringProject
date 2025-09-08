@@ -75,10 +75,10 @@
                 <li><a href="viewuser" class="menu-item" data-section="users">
                     <i class="fa-solid fa-user"></i> All Users
                 </a></li>
-                <li><a href="stories" class="menu-item active" data-section="books">
+                <li><a href="stories" class="menu-item" data-section="books">
                     <i class="fa-solid fa-book"></i> All Books
                 </a></li>
-                <li><a href="premium" class="menu-item" data-section="pre-mium">
+                <li><a href="#" class="menu-item active" data-section="pre-mium">
                     <i class="fa-solid fa-coins"></i> Premium Match
                 </a></li>
                 <li><a href="viewadmin" class="menu-item" data-section="admin">
@@ -118,16 +118,8 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>BId</th>
+                            <th>PId</th>
                             <th>Cover</th>
-                            <th>Title</th>
-                            <th>Subtitle</th>
-                            <th>Category</th>
-                            <th>Status</th>
-                            <th>Views</th>
-                            <th>Vote</th>
-                            <th>Premium</th>
-                            <th>Coins</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -142,7 +134,7 @@
                 <td th:text="${story.title}"></td>
                 <td th:text="${story.subtitle}"></td>
                 <td th:text="${story.category}"></td>
-                <td th:text="${story.published} ? 'Published' : 'Draft'"></td>
+                <td th:text="${story.status}"></td>
                 <td th:text="${story.views}"></td>
                 <td th:text="${story.vote}"></td>
                 <td th:text="${story.premium}"></td>

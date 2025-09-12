@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,8 @@
     <!--ICONS-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <!--css-->
-    <link rel="stylesheet" href="css/hf.css">
-    <link rel="stylesheet" href="css/describe.css">
+   <link rel="stylesheet" th:href="@{/css/hf.css}">
+<link rel="stylesheet" th:href="@{/css/describe.css}">
     <!--icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -20,7 +20,7 @@
     <!--Header starts-->
       <header>
         <nav class="navbar">
-            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            <a href="home" class="logo"><img th:src="@{/images/logo.png}" alt=""></a>
             
             <ul class="menu-links">
                 <span id="close-button" class="material-symbols-outlined">close</span>
@@ -40,15 +40,15 @@
 
                 <li>
                 <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn"><img src="images/user.png"></button>
+                <button onclick="myFunction()" class="dropbtn"><img th:src="@{/images/user.png}"></button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="profile" style="text-decoration: none;">Profile</a>
-                    <hr>
-                    <p>Inbox</p>
-                    <p>Notification</p>
-                    <p>Settings</p>
-                    <p>Help</p>
-                   <a href="logout" style="text-decoration: none;">Log out</a>
+                    <a th:href="@{/userPage}" style="text-decoration: none;">Profile</a>
+                    <hr style="margin: 5px;">
+                    <a href="logout" style="text-decoration: none;">Inbox</a>
+                    <a href="logout" style="text-decoration: none;">Notification</a>
+                    <a href="logout" style="text-decoration: none;">Settings</a>
+                    <a href="logout" style="text-decoration: none;">Help</a>
+                    <a href="logout" style="text-decoration: none;">Log out</a>
                 </div>
                 </div>
                 </li>
@@ -65,10 +65,14 @@
             <!-- Book Header -->
             <div class="book-header">
                 <div class="book-cover">
-                    <img src="images/45.jpg" alt="Falling for the Rockstar">
+                    <img th:src="@{/images/45.jpg}" alt="Falling for the Rockstar">
                 </div>
                 <div class="book-info">
                     <h1>WAINDALE</h1>
+                       <!-- Error Message -->
+        <div th:if="${coinerror}" style="color:red;">
+            <p th:text="${coinerror}"></p>
+        </div>
                     <button class="premium-coin-btn" onclick="openModal()">
                     <i class='bx  bxs-coin'  style='color:white'></i>BUY
                 </button>
@@ -90,42 +94,59 @@
                 </div>
             </div>
 
-                <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="close-button" onclick="closeModal()">&times;</button>
-            
-            <div class="modal-header">
-                <h2 class="modal-title">Continue reading this story?</h2>
-                <p class="modal-description">
-                    Buy this story part or the entire story. Either way, your Coins help writers earn money for the stories you love.
-                </p>
-            </div>
 
-            <div class="purchase-options">
-                <button class="purchase-button" >
-                    <div class="coin-icon"><i class='bx  bxs-coin'  style='color:white'></i></div>
-                    <span class="purchase-text">
-                        <strong>269</strong> &nbsp;&nbsp; For whole story
-                    </span>
-                </button>
-                <a href="chapter" class="purchase-button">
-                    <div class="coin-icon"><i class='bx  bxs-coin'  style='color:white'></i></div>
-                    <span class="purchase-text">
-                        <strong>3</strong> &nbsp;&nbsp; For a part
-                    </span>
-                </a>
-            </div>
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <!-- Close Button -->
+        <button class="close-button" onclick="closeModal()">&times;</button>
 
-            <div class="remaining-parts">
-                This story has <strong>36 parts</strong>
-            </div>
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h2 class="modal-title">Continue reading this story?</h2>
+            <p class="modal-description">
+                Buy this story part or the entire story. Either way, your Coins help writers earn money for the stories you love.
+            </p>
+        </div>
 
-            <div class="learn-more">
-                See how Coins support your favorite writers. <a href="#">Learn more</a>
-            </div>
+        <!-- Purchase Options -->
+        <div class="purchase-options">
+
+            <!-- Buy Whole Story -->
+            <a th:href="@{/premium/reads/{id}(id=${story != null ? story.id : 3})}" 
+               class="purchase-button">
+                <div class="coin-icon">
+                    <i class='bx bxs-coin' style='color:white'></i>
+                </div>
+                <span class="purchase-text" th:text="${story != null ? story.coins : 256}"></span>
+                <span> For whole story</span>
+            </a>
+
+            <!-- Buy Part -->
+            <a th:href="@{/premium/read/{id}(id=${story != null ? story.id : 3})}" 
+               class="purchase-button">
+                <div class="coin-icon">
+                    <i class='bx bxs-coin' style='color:white'></i>
+                </div>
+                <span class="purchase-text" th:text="${story != null ? story.part : 3}"></span>
+                <span> For a part</span>
+            </a>
+
+        </div>
+
+        <!-- Remaining Parts -->
+        <div class="remaining-parts">
+            This story has <strong>36</strong> parts
+        </div>
+
+        <!-- Learn More -->
+        <div class="learn-more">
+            See how Coins support your favorite writers. <a href="#">Learn more</a>
         </div>
     </div>
+</div>
+
+
 
             <!-- Author Info -->
             <div class="author-info">

@@ -47,12 +47,12 @@
                 <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn"><img src="images/user.png"></button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#" style="text-decoration: none;">Profile</a>
-                    <hr>
-                    <p>Inbox</p>
-                    <p>Notification</p>
-                    <p>Settings</p>
-                    <p>Help</p>
+                    <a th:href="@{/userPage}" style="text-decoration: none;">Profile</a>
+                    <hr style="margin: 5px;">
+                    <a href="logout" style="text-decoration: none;">Inbox</a>
+                    <a href="logout" style="text-decoration: none;">Notification</a>
+                    <a href="logout" style="text-decoration: none;">Settings</a>
+                    <a href="logout" style="text-decoration: none;">Help</a>
                     <a href="logout" style="text-decoration: none;">Log out</a>
                 </div>
                 </div>
@@ -146,6 +146,11 @@
 							<div class="dropdown">
                                 <a href="/new" class="btn btn-outline-secondary" type="button"> + New Story</a>
                             </div>
+                            
+                            <div>
+<i class='bx bx-cog' style="font-size: 32px; color:#333;"></i>
+                            </div>
+                            
                         </div>
                         
                         <div class="story-list">
@@ -163,7 +168,7 @@
 					            <span><i class="fas fa-star"></i> <span th:text="${story.vote}"></span></span>
 					        </div>
 					    </div>
-					    <a href="del" ><i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i> </a>
+					    <a  th:href="@{/story/delete/{id}(id=${story.id})}" ><i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i> </a>
 					</div>                      
                     <button class="show-more-btn">Show more <i class="fas fa-chevron-down"></i></button>
                        
@@ -206,6 +211,9 @@
             </div>
         </div>        
     </div>
+    
+    </div>
+    
 
 <!-- Footer starts-->
 <footer class="footer">
@@ -289,5 +297,8 @@ document.addEventListener("DOMContentLoaded", function () {
         
         
     </script>
+    
+    <!-- custom js-->
+    <script src="js/script.js"></script>
 
 </body>

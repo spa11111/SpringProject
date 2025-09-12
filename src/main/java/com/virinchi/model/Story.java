@@ -52,6 +52,8 @@ public class Story {
     private int views = 0;
     @Column(name = "coins", nullable = false)
     private int coins = 0;
+    @Column(name = "part", nullable = false)
+    private int part = 0;
 	public long getId() {
 		return id;
 	}
@@ -147,6 +149,12 @@ public class Story {
 	}
 	public void setCoins(int coins) {
 		this.coins = coins;
+	}
+	public int getPart() {
+		return part;
+	}
+	public void setPart(int part) {
+		this.part = part;
 	}
     
     

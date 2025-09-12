@@ -11,7 +11,7 @@
     <!--ICONS-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <!--css-->
-    <link rel="stylesheet" th:href="@{/css/hf.css}">
+        <link rel="stylesheet" th:href="@{/css/hf.css}">
 <link rel="stylesheet" th:href="@{/css/readChap.css}">
     <!--icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -25,7 +25,7 @@
                     <img th:src="@{/images/1.png}" alt="book">
                 </div>
                 <div class="book-info">
-                    <h1>Last Seen</h1>
+                    <h1 th:text="${story.title}"></h1>
                     <div class="chapter-dropdown">
                         <select class="chapter-select" onchange="changeChapter(this.value)">
                             <option value="1">ABOUT AUTHOR</option>

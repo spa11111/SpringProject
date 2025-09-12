@@ -11,7 +11,8 @@
     <!--ICONS-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <!--css-->
-    <link rel="stylesheet" href="css/readChap.css">
+        <link rel="stylesheet" th:href="@{/css/hf.css}">
+<link rel="stylesheet" th:href="@{/css/readChap.css}">
     <!--icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -21,10 +22,10 @@
     <div class="header">
             <div class="left-section">
                 <div class="book-cover">
-                    <img src="images/45.jpg" alt="book">
+                    <img th:src="@{/images/45.jpg}" alt="book">
                 </div>
                 <div class="book-info">
-                    <h1>Waindale</h1>
+                    <h1 th:text="${story.title}"></h1>
                     <div class="chapter-dropdown">
                         <select class="chapter-select" onchange="changeChapter(this.value)">
                             <option value="1">ABOUT AUTHOR</option>
@@ -43,9 +44,15 @@
             </div>
             
             <div class="right-section">
-                <a href="#" class="vote-button">
-                    <i class='bx  bx-star'  style='color:#000000'></i>  Vote
-                </a>
+           
+            <form th:action="@{/voted/{id}(id=${story.id})}" method="post">
+			    <button type="submit" class="vote-button">
+			        <i class='bx bx-star' style='color:#000000'></i> Vote
+			    </button>
+			</form>
+
+
+
             </div>
         </div>
         <!--Header end-->
@@ -66,7 +73,11 @@
             <div class="stats">
                 <span ><i class='bx bx-show' style='color:#000000'></i>  1.2k</span>
                 <span><i class='bx bx-message-dots' style='color:#000000'></i> 89</span>
-                <span><i class='bx  bxs-star'  style='color:#000000'></i> 45</span>
+                <span>
+				    <i class='bx bxs-star' style='color:#000000'></i>
+				    <span th:text="${story.vote}">0</span>
+				</span>
+
             </div>
         </div>
 

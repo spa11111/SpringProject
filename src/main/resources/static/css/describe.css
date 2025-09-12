@@ -205,6 +205,8 @@ body{
             transition: background-color 0.2s;
             font-size: 16px;
             font-weight: 500;
+            text-decoration: none;
+            gap: 15px;
         }
 
         .purchase-button:hover {
@@ -225,7 +227,6 @@ body{
         }
 
         .purchase-text {
-            flex: 1;
             text-align: left;
         }
 

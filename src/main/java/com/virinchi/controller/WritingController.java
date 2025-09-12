@@ -81,7 +81,7 @@ public class WritingController {
 	    user.incrementWork();
 	    
 	 // Increment coins (for example +10 coins per published chapter)
-	    user.setCoins(user.getCoins() + 5);
+	    user.setCoins(user.getCoins() + 2);
 	    userService.save(user);
 
 	    return "redirect:/userPage";

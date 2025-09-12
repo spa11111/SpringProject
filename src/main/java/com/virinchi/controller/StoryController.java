@@ -23,7 +23,10 @@ public class StoryController {
 
 	@Autowired
     private StoryRepository storyRepo;
-
+	
+	@Autowired
+	private StoryService storyService;
+	
     @GetMapping("/stories")
     public String listStories(Model model, HttpSession session) {
         // check if admin user is logged in
@@ -34,7 +37,8 @@ public class StoryController {
         }
         return "redirect:/adminLogin"; // if not admin, redirect to login
     }
-  
+    
+
 
 }
 

@@ -136,7 +136,7 @@
 				        <td th:text="${u.coins}"></td>
 				        <td>
 						<a href="edit"><i class='bx bx-edit' style='font-size:24px;'></i> </a>
-						<a href="del"><i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i> </a>
+						 <a th:href="@{/user/del/{id}(id=${u.id})}"><i class='bx bxs-trash' style='color:#D25128; font-size:24px;'></i> </a>
 						</td>
 				    </tr>
 				
